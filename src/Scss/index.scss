@@ -1,0 +1,25 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --main-color-one: rgb(110, 87, 224);
+    --main-color-two: #FFF;
+    --main-background-color: #191624;
+    --main-job-position-color: rgba(255,255,255,.7);
+    --main-icon-color: rgb(83, 65, 172); 
+}
+
+body{
+    height: 100vh;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}

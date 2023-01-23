@@ -1,0 +1,19 @@
+.header {
+    .container{
+        .navbar-brand{
+            color: var(--main-color-two);
+        }
+        .nav-link{
+            color: var(--main-color-two);
+            &:hover{
+                color: var(--main-color-one) !important;
+                font-weight: bold;
+            }
+        }
+        .change-mode-icon{
+            font-size: 25px;
+            cursor: pointer;
+            color: var(--main-color-two);
+        }
+    }
+}

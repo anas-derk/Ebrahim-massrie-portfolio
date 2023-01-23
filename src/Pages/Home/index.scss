@@ -1,0 +1,53 @@
+.home {
+    .row {
+        height: inherit;
+        .summary {
+            transition: 1s;
+            &:hover {
+                padding: 30px 20px;
+                box-shadow: 1px 1px 10px var(--main-color-two);
+                border-radius: 10px;
+                transform: scale(1.1,1.1);
+            }
+            h1.my-name{
+                font-size: 40px;
+                color: var(--main-color-two);
+            }
+            h5.job-position{
+                margin: {
+                    top: 25px;
+                    bottom: 25px;
+                }
+                color: var(--main-job-position-color);
+            }
+            p.job-caption{
+                margin: 0;
+                line-height: 2.5;
+                color: var(--main-color-two);
+                text-align: justify;
+            }
+            button.contact-me-btn{
+                background-color: #7668bd;
+                color: #FFF;
+                &:hover {
+                    background-color: #7668bd;
+                }
+            }
+        }
+        .contact-links{
+            li{
+                font-size: 33px;
+                margin-bottom: 10px;
+                .icon{
+                    color: #7668bd;
+                    transition: .5s;
+                    &:hover {
+                        background-color: var(--main-color-two);
+                        padding: 10px;
+                        border-radius: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
