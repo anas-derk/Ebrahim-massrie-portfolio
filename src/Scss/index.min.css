@@ -1,1 +1,1 @@
-*{font-family:'Poppins', sans-serif}:root{--main-color-one:#6e57e0;--main-color-two:#FFF;--main-background-color:#191624;--main-job-position-color:rgba(255,255,255,0.7);--main-icon-color:#5341ac}body{height:100vh}a{text-decoration:none}ul{padding:0;margin:0;list-style:none}
+*{font-family:'Poppins', sans-serif}:root{--main-color-one:#6e57e0;--main-color-two:#FFF;--main-background-color:#191624;--main-job-position-color:rgba(255,255,255,0.7);--main-icon-color:#5341ac}body{min-height:100vh}a{text-decoration:none}ul{padding:0;margin:0;list-style:none}
