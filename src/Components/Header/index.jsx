@@ -4,7 +4,7 @@ import { MdOutlineDarkMode, MdOutlineWbSunny } from "react-icons/md";
 import { useDispatch, useStore } from "react-redux";
 import { useState } from "react";
 
-export const Header = () => {
+const Header = () => {
     let headerData = [
         {
             route: "/",
@@ -75,3 +75,5 @@ export const Header = () => {
         </header>
     );
 }
+
+export default Header;
