@@ -4,14 +4,53 @@
     h2{
         border-radius: 10px;
     }
+    .welcome-message {
+        font-size: 18px;
+        .user-name{
+            border-radius: 5px;
+        }
+    }
+    .how-to-use-terminal-table{
+        border: 2px solid #EEE;
+        border-left: 10px solid #EEE;
+        td {
+            border: 1px solid #EEE;
+            padding: 15px;
+            span{
+                border-left: 10px solid #EEE;
+                border-right: 10px solid #EEE;
+            }
+        }
+        .use-statments{
+            font-size: 18px;
+            border-radius: 3px;
+            // border-left: 10px solid #EEE;
+        }
+    }
     .loading-box{
         border-radius: 5px;
     }
     .terminal-control-box {
-        min-height: 90%;
+        min-height: 300px;
         width: 100%;
         background-color: #74215b;
         overflow: auto;
         border-radius: 8px;
+        .terminal-body{
+            .terminal-control-form{
+                span{
+                    border-radius: 5px;
+                }
+                .command-input{
+                    background: none;
+                    border: none;
+                    outline: none;
+                    color: #FFF;
+                }
+            }
+            .result-box{
+                
+            }
+        }
     }
 }
