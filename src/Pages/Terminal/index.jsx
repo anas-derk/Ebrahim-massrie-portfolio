@@ -21,16 +21,24 @@ const Terminal = ({ pageTitle }) => {
 
     const [command, setCommand] = useState("");
 
-    const [result, setResult] = useState("");
+    const [results, setResults] = useState([]);
 
     const [isTerminalHeaderVisible, setIsTerminalHeaderVisible] = useState(true);
 
+    const [previousCommandsList, setPreviousCommandsList] = useState([]);
+
+    const addCommandToPreviousCommandList = () => {
+        let previousCommandsListTemp = previousCommandsList.map(previousCommand => previousCommand);
+        previousCommandsListTemp.push(command);
+        setPreviousCommandsList(previousCommandsListTemp);
+    }
+
     let useStatments = [
         <td>1. First: If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal</td>,
-        <td>2. You Can Running Commands By Write Command In Terminal Area Then Click On Enter .</td>,
-        <td>3. For Display All Of Commands, Please Write Command: <span className="get-all-commands-statement bg-secondary p-2 m-2 d-block">"ebrahim-massrie-terminal get all-commands"</span> (without double qutations)</td>,
+        <td>2. You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter . <span className="run-command-statment p-2 bg-secondary m-2 d-block">emt [commandName]</span></td>,
+        <td>3. For Display All Of Commands, Please Write Command: <span className="get-all-commands-statement bg-secondary p-2 m-2 d-block">emt get-all-commands</span></td>,
         <td>4. This Terminal Characters Case Sensitive (example: get is not GET)</td>,
-        <td>5. For Knowledge Details Of Determinated Command Please Write Command: <span className="command-help bg-secondary p-2 m-2 d-block">"ebrahim-massrie-terminal [commandName] help"</span></td>,
+        <td>5. For Knowledge Details Of Determinated Command Please Write Command: <span className="command-help bg-secondary p-2 m-2 d-block">emt [commandName] --help</span></td>,
         <td>6. Last, I Wish For You Fantastic Experince With My Terminal .</td>
     ];
 
@@ -55,13 +63,37 @@ const Terminal = ({ pageTitle }) => {
 
     const executeCommand = (e) => {
         e.preventDefault();
-        if (command.length === 0) {
-            setResult("Error, Please Write Any Valid Command !!");
-        }
-        if (command === "cls") {
-            setIsTerminalHeaderVisible(false);
-            setCommand("");
-            setResult("");
+        setCommand("");
+        switch(command) {
+            case "": {
+                setResults([
+                    "Error, Please Write Any Valid Command !!",
+                ]);
+                break;
+            }
+            case "emt cls": {
+                setIsTerminalHeaderVisible(false);
+                setResults([]);
+                addCommandToPreviousCommandList();
+                break;
+            }
+            case "emt whoi": {
+                setResults([
+                    "Hi, I'am Ebrahim Massrie |",
+                    "Junior Artificial Intelligence Engineer",
+                    "I am interested in the fields of data science,",
+                    "machine learning and deep learning,",
+                    "and I seek to build more modern applications in this field."
+                ]);
+                addCommandToPreviousCommandList();
+                break;
+            }
+            default: {
+                setResults([
+                    "Error, The Command Is Not Found !!",
+                    "Please Write Any Command Valid ."
+                ]);
+            }
         }
     }
 
@@ -111,6 +143,8 @@ const Terminal = ({ pageTitle }) => {
                     <h6 className="terminal-name">Ebrahim Massrie Terminal</h6>
                     <h6 className="copyright">Copyright &copy; Ebrahim Massrie. All rights reserved.</h6>
                 </header>}
+                {/* Start Grid System */}
+                {/* Start Terminal Body */}
                 <div className="terminal-body">
                     {/* Start Terminal Control Form */}
                     <form className="terminal-control-form mb-3" onSubmit={executeCommand}>
@@ -119,18 +153,22 @@ const Terminal = ({ pageTitle }) => {
                             type="text"
                             className="command-input ps-2"
                             autoFocus
-                            onChange={(e) => setCommand(e.target.value.trim())}
+                            onChange={(e) => setCommand(e.target.value)}
                             value={command}
-                            defaultValue=""
                         />
                     </form>
                     {/* End Terminal Control Form */}
-                    {/* Start Result Box */}
-                    {result && <div className="result-box">
-                        {result}
-                    </div>}
-                    {/* End Result Box */}
                 </div>
+                {/* End Terminal Body */}
+                {/* Start Result Box */}
+                {results && <div className="result-box">
+                    <ul className="result-list">
+                        {results.map((result, index) =>
+                            <li className="result mb-3" key={index}>{result}</li>
+                        )}
+                    </ul>
+                </div>}
+                {/* End Result Box */}
             </div>}
         </div>
         // End Terminal
