@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./index.min.css";
+import { useNavigate } from "react-router-dom";
 
 const Terminal = ({ pageTitle }) => {
 
@@ -8,6 +9,8 @@ const Terminal = ({ pageTitle }) => {
         document.title = pageTitle;
 
     });
+
+    const navigate = useNavigate();
 
     const [userName, setUserName] = useState("");
 
@@ -35,9 +38,9 @@ const Terminal = ({ pageTitle }) => {
 
     let useStatments = [
         <td>1. First: If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal</td>,
-        <td>2. You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter . <span className="run-command-statment p-2 bg-secondary m-2 d-block">emt [commandName]</span></td>,
-        <td>3. For Display All Of Commands, Please Write Command: <span className="get-all-commands-statement bg-secondary p-2 m-2 d-block">emt get all-commands</span></td>,
-        <td>4. This Terminal Characters Case Sensitive (example: get is not GET)</td>,
+        <td>2. You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter . <span className="run-command-statment p-2 bg-secondary m-2 d-block">emt [commandName] --[parameterName] [value] </span></td>,
+        <td>3. For Display All Of Commands, Please Write Command: <span className="get-all-commands-statement bg-secondary p-2 m-2 d-block">emt get --all-commands</span></td>,
+        <td>4. This Terminal it is not Characters Case Sensitive (example: get is equal GET)</td>,
         <td>5. For Knowledge Details Of Determinated Command Please Write Command: <span className="command-help bg-secondary p-2 m-2 d-block">emt [commandName] --help</span></td>,
         <td>6. Last, I Wish For You Fantastic Experince With My Terminal .</td>
     ];
@@ -63,8 +66,10 @@ const Terminal = ({ pageTitle }) => {
 
     const executeCommand = (e) => {
         e.preventDefault();
+        // Clear The Command Text Box
         setCommand("");
-        const commandAfterHandling = command.trim().replace(/\s{2,}/g, " ");
+        // Handling Command Content Before Processing
+        const commandAfterHandling = command.trim().replace(/\s{2,}/g, " ").toLowerCase();
         switch (commandAfterHandling) {
             case "": {
                 setResults([
@@ -78,7 +83,7 @@ const Terminal = ({ pageTitle }) => {
                 addCommandToPreviousCommandList();
                 break;
             }
-            case "emt whoiam": {
+            case "emt who-i-am": {
                 setResults([
                     "Hi, I'am Ebrahim Massrie |",
                     "Junior Artificial Intelligence Engineer",
@@ -90,27 +95,65 @@ const Terminal = ({ pageTitle }) => {
                 break;
             }
             case "emt get previous-commands": {
-                setResults(previousCommandsList);
+                if (previousCommandsList.length === 0) {
+                    setResults(["Sorry, Can't Find Commands In Previous Command List !!!"]);
+                } else {
+                    setResults(previousCommandsList);
+                }
                 addCommandToPreviousCommandList();
                 break;
             }
-            // case "emt set previous-commands": {
-            //     setResults(previousCommandsList);
-            //     addCommandToPreviousCommandList();
-            //     break;
-            // }
-            case "emt reload": {
-                setResults(["Ebrahim Massrie Terminal Reloading Now .."]);
+            case "emt close": {
+                setResults(["Please Wait While Closing Ebrahim Messrie Terminal The Back To Control Panel Page ..."]);
+                setTimeout(() => {
+                    navigate("/control-panel");
+                }, 3000);
+                break;
+            }
+            case "emt restart": {
+                setResults(["Ebrahim Massrie Terminal Restart Now .."]);
                 setTimeout(() => {
                     document.location.reload();
                 }, 2000);
                 break;
             }
             default: {
-                setResults([
-                    "Error, The Command Is Not Found !!",
-                    "Please Write Any Command Valid ."
-                ]);
+                // Convert Command To Array By Empty Space Separator
+                let commandPartsArray = commandAfterHandling.split(" ");
+                // get Command Parts Array Length
+                let commandPartsArrayLength = commandPartsArray.length;
+                // check if previous array includes the next strings: emt, set, --user-name
+                // and check if array length greater than 4 to change user name
+                if (
+                    commandPartsArray.includes("emt")
+                    && commandPartsArray.includes("set")
+                    && commandPartsArray.includes("--user-name")
+                    && commandPartsArrayLength >= 4
+                ) {
+                    // Get new user name In Array By Slicing Elements From The Fourth Element
+                    let namePartsArray = commandPartsArray.slice(3);
+                    // Execute Loop On Array For Replace Each (') Element With A Empty String 
+                    namePartsArray.forEach((namePart, index) => {
+                        namePartsArray[index] = namePart.replaceAll("'", "");
+                    });
+                    // Convert The Array To String Without Comma
+                    let newUserName = namePartsArray.join(" ");
+                    // Start Handle Change User Name Process
+                    setResults(["changing the username of the entered name ..."]);
+                    localStorage.setItem("user-name", newUserName);
+                    setTimeout(() => {
+                        setResults(["The name has been changed successfully, and the terminal is restarting .."]);
+                        setTimeout(() => {
+                            document.location.reload();
+                        }, 1500);
+                    }, 2500);
+
+                } else {
+                    setResults([
+                        "Error, The Command Is Not Found !!",
+                        "Please Write Any Command Valid ."
+                    ]);
+                }
             }
         }
     }
