@@ -13,8 +13,6 @@ const Terminal = ({ pageTitle }) => {
 
     const [error, setError] = useState("");
 
-    // const user_name = localStorage.getItem("user-name");
-
     const [isOpenTerminal, setIsOpenTerminal] = useState(false);
 
     const [isTerminalOpening, setIsTerminalOpening] = useState(false);
@@ -28,15 +26,17 @@ const Terminal = ({ pageTitle }) => {
     const [previousCommandsList, setPreviousCommandsList] = useState([]);
 
     const addCommandToPreviousCommandList = () => {
-        let previousCommandsListTemp = previousCommandsList.map(previousCommand => previousCommand);
-        previousCommandsListTemp.push(command);
-        setPreviousCommandsList(previousCommandsListTemp);
+        if (!previousCommandsList.includes(command)) {
+            let previousCommandsListTemp = previousCommandsList.map(previousCommand => previousCommand);
+            previousCommandsListTemp.unshift(command);
+            setPreviousCommandsList(previousCommandsListTemp);
+        }
     }
 
     let useStatments = [
         <td>1. First: If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal</td>,
         <td>2. You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter . <span className="run-command-statment p-2 bg-secondary m-2 d-block">emt [commandName]</span></td>,
-        <td>3. For Display All Of Commands, Please Write Command: <span className="get-all-commands-statement bg-secondary p-2 m-2 d-block">emt get-all-commands</span></td>,
+        <td>3. For Display All Of Commands, Please Write Command: <span className="get-all-commands-statement bg-secondary p-2 m-2 d-block">emt get all-commands</span></td>,
         <td>4. This Terminal Characters Case Sensitive (example: get is not GET)</td>,
         <td>5. For Knowledge Details Of Determinated Command Please Write Command: <span className="command-help bg-secondary p-2 m-2 d-block">emt [commandName] --help</span></td>,
         <td>6. Last, I Wish For You Fantastic Experince With My Terminal .</td>
@@ -51,7 +51,7 @@ const Terminal = ({ pageTitle }) => {
             }, 3000);
         }
         else {
-            // localStorage.setItem("user-name", userName);
+            localStorage.setItem("user-name", userName);
             setIsTerminalOpening(true);
             let openTerminalTimeout = setTimeout(() => {
                 setIsTerminalOpening(false);
@@ -64,7 +64,8 @@ const Terminal = ({ pageTitle }) => {
     const executeCommand = (e) => {
         e.preventDefault();
         setCommand("");
-        switch(command) {
+        const commandAfterHandling = command.trim().replace(/\s{2,}/g, " ");
+        switch (commandAfterHandling) {
             case "": {
                 setResults([
                     "Error, Please Write Any Valid Command !!",
@@ -77,7 +78,7 @@ const Terminal = ({ pageTitle }) => {
                 addCommandToPreviousCommandList();
                 break;
             }
-            case "emt whoi": {
+            case "emt whoiam": {
                 setResults([
                     "Hi, I'am Ebrahim Massrie |",
                     "Junior Artificial Intelligence Engineer",
@@ -88,6 +89,23 @@ const Terminal = ({ pageTitle }) => {
                 addCommandToPreviousCommandList();
                 break;
             }
+            case "emt get previous-commands": {
+                setResults(previousCommandsList);
+                addCommandToPreviousCommandList();
+                break;
+            }
+            // case "emt set previous-commands": {
+            //     setResults(previousCommandsList);
+            //     addCommandToPreviousCommandList();
+            //     break;
+            // }
+            case "emt reload": {
+                setResults(["Ebrahim Massrie Terminal Reloading Now .."]);
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+                break;
+            }
             default: {
                 setResults([
                     "Error, The Command Is Not Found !!",
@@ -96,6 +114,30 @@ const Terminal = ({ pageTitle }) => {
             }
         }
     }
+
+    useEffect(() => {
+
+        const user_name = localStorage.getItem("user-name");
+
+        if (user_name) {
+
+            setIsTerminalOpening(true);
+
+            setUserName(user_name);
+
+            let terminalOpeningTimeout = setTimeout(() => {
+
+                setIsTerminalOpening(false);
+
+                setIsOpenTerminal(true);
+
+                clearTimeout(terminalOpeningTimeout);
+
+            }, 2000);
+
+        }
+
+    }, []);
 
     return (
         // Start Terminal
@@ -117,7 +159,7 @@ const Terminal = ({ pageTitle }) => {
                     </tbody>
                 </table>
             }
-            {!isOpenTerminal && <h6 className="mb-3">Please Enter Your Name Then Click Open Terminal :</h6>
+            {!isOpenTerminal && !isTerminalOpening && <h6 className="mb-3">Please Enter Your Name Then Click Open Terminal :</h6>
                 && <div className="row mb-4">
                     <div className="col-md-8">
                         <input
