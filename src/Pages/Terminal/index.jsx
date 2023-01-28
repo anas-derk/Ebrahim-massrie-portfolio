@@ -133,9 +133,9 @@ const Terminal = ({ pageTitle }) => {
                 break;
             }
             case "emt close": {
-                setResults(["Please Wait While Closing Ebrahim Messrie Terminal The Back To Control Panel Page ..."]);
+                setResults(["Please Wait While Closing Ebrahim Messrie Terminal The Back To Home Page ..."]);
                 setTimeout(() => {
-                    navigate("/control-panel");
+                    navigate("/");
                 }, 3000);
                 break;
             }
