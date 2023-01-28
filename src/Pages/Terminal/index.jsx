@@ -4,12 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const Terminal = ({ pageTitle }) => {
 
-    useEffect(() => {
-
-        document.title = pageTitle;
-
-    });
-
     const navigate = useNavigate();
 
     const [userName, setUserName] = useState("");
@@ -28,13 +22,7 @@ const Terminal = ({ pageTitle }) => {
 
     const [previousCommandsList, setPreviousCommandsList] = useState([]);
 
-    const addCommandToPreviousCommandList = () => {
-        if (!previousCommandsList.includes(command)) {
-            let previousCommandsListTemp = previousCommandsList.map(previousCommand => previousCommand);
-            previousCommandsListTemp.unshift(command);
-            setPreviousCommandsList(previousCommandsListTemp);
-        }
-    }
+    const [commandIndex, setCommandIndex] = useState(0);
 
     let useStatmentsAsTableData = [
         <td>1. First: If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal</td>,
@@ -55,14 +43,24 @@ const Terminal = ({ pageTitle }) => {
     ];
 
     let allCommands = [
-        "1. emt cls",
-        "2. emt who-am-i",
-        "3. emt get --previous-commands",
-        "4. emt clear --previous-commands-list",
-        "5. emt close",
-        "6. emt restart",
-        "7. emt set --user-name [new_user_name] (Without Square Bracktes)",
+        "emt cls",
+        "emt who-am-i",
+        "emt get --previous-commands",
+        "emt clear --previous-commands-list",
+        "emt close",
+        "emt restart",
+        "emt set --user-name [new_user_name] (Without Square Bracktes)",
     ];
+
+    const addCommandToPreviousCommandList = () => {
+        if (!previousCommandsList.includes(command)) {
+            let previousCommandsListTemp = previousCommandsList.map(previousCommand => previousCommand);
+            previousCommandsListTemp.unshift(command);
+            setPreviousCommandsList(previousCommandsListTemp);
+        }
+    }
+
+    const handleChange = (e) => setCommand(e.target.value);
 
     const openTerminal = () => {
         if (!userName) {
@@ -199,7 +197,35 @@ const Terminal = ({ pageTitle }) => {
         }
     }
 
+    document.addEventListener("keyup", (e) => {
+
+        handleKeyboardPressing(e.key);
+
+    });
+
+    const handleKeyboardPressing = (key) => {
+
+        if (key === "ArrowUp") {
+
+            if (previousCommandsList.length > 0) {
+
+                setCommand(previousCommandsList[commandIndex]);
+
+            }
+            
+        }
+
+        if (key === "ArrowDown") {
+
+            console.log("arrow down");
+
+        }
+
+    }
+
     useEffect(() => {
+
+        document.title = pageTitle;
 
         const user_name = localStorage.getItem("user-name");
 
@@ -249,8 +275,9 @@ const Terminal = ({ pageTitle }) => {
                         <input
                             type="text"
                             placeholder="Enter Your Name Here"
-                            className="form-control p-3"
+                            className="form-control p-3 command-input"
                             onChange={(e) => setUserName(e.target.value)}
+                            value={command}
                         />
                     </div>
                     <div className="col-md-4">
@@ -282,7 +309,7 @@ const Terminal = ({ pageTitle }) => {
                             type="text"
                             className="command-input ps-2"
                             autoFocus
-                            onChange={(e) => setCommand(e.target.value)}
+                            onChange={handleChange}
                             value={command}
                         />
                     </form>
