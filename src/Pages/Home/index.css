@@ -1,57 +1,8 @@
-.home .row {
-  height: inherit;
-}
-
-.home .row .summary {
-  transition: 1s;
-}
-
-.home .row .summary:hover {
-  padding: 30px 20px;
-  box-shadow: 1px 1px 10px var(--main-color-two);
-  border-radius: 10px;
-  transform: scale(1.1, 1.1);
-}
-
-.home .row .summary h1.my-name {
-  font-size: 40px;
-  color: var(--main-color-two);
-}
-
-.home .row .summary h5.job-position {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  color: var(--main-job-position-color);
-}
-
-.home .row .summary p.job-caption {
-  margin: 0;
-  line-height: 2.5;
-  color: var(--main-color-two);
-  text-align: justify;
-}
-
-.home .row .summary button.contact-me-btn {
-  background-color: #7668bd;
+.home {
+  min-height: 100vh;
   color: #FFF;
 }
 
-.home .row .summary button.contact-me-btn:hover {
-  background-color: #7668bd;
-}
-
-.home .row .contact-links li {
-  font-size: 33px;
-  margin-bottom: 10px;
-}
-
-.home .row .contact-links li .icon {
-  color: #7668bd;
-  transition: .5s;
-}
-
-.home .row .contact-links li .icon:hover {
-  background-color: var(--main-color-two);
-  padding: 10px;
-  border-radius: 3px;
+.home .control-box {
+  min-height: inherit;
 }
