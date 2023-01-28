@@ -36,13 +36,32 @@ const Terminal = ({ pageTitle }) => {
         }
     }
 
-    let useStatments = [
+    let useStatmentsAsTableData = [
         <td>1. First: If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal</td>,
         <td>2. You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter . <span className="run-command-statment p-2 bg-secondary m-2 d-block">emt [commandName] --[parameterName] [value] </span></td>,
         <td>3. For Display All Of Commands, Please Write Command: <span className="get-all-commands-statement bg-secondary p-2 m-2 d-block">emt get --all-commands</span></td>,
         <td>4. This Terminal it is not Characters Case Sensitive (example: get is equal GET)</td>,
         <td>5. For Knowledge Details Of Determinated Command Please Write Command: <span className="command-help bg-secondary p-2 m-2 d-block">emt [commandName] --help</span></td>,
         <td>6. Last, I Wish For You Fantastic Experince With My Terminal .</td>
+    ];
+
+    let useStatmentsAsTerminalCommandResults = [
+        "1. If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal",
+        "2. You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter: emt [commandName] --[parameterName] [value]",
+        "3. For Display All Of Commands, Please Write Command: emt get --all-commands",
+        "4. This Terminal it is not Characters Case Sensitive (example: get is equal GET)",
+        "5. For Knowledge Details Of Determinated Command Please Write Command: emt [commandName] --help",
+        "6. Last, I Wish For You Fantastic Experince With My Terminal .",
+    ];
+
+    let allCommands = [
+        "1. emt cls",
+        "2. emt who-am-i",
+        "3. emt get --previous-commands",
+        "4. emt clear --previous-commands-list",
+        "5. emt close",
+        "6. emt restart",
+        "7. emt set --user-name [new_user_name] (Without Square Bracktes)",
     ];
 
     const openTerminal = () => {
@@ -83,7 +102,7 @@ const Terminal = ({ pageTitle }) => {
                 addCommandToPreviousCommandList();
                 break;
             }
-            case "emt who-i-am": {
+            case "emt who-am-i": {
                 setResults([
                     "Hi, I'am Ebrahim Massrie |",
                     "Junior Artificial Intelligence Engineer",
@@ -94,13 +113,25 @@ const Terminal = ({ pageTitle }) => {
                 addCommandToPreviousCommandList();
                 break;
             }
-            case "emt get previous-commands": {
+            case "emt get --previous-commands": {
                 if (previousCommandsList.length === 0) {
                     setResults(["Sorry, Can't Find Commands In Previous Command List !!!"]);
                 } else {
                     setResults(previousCommandsList);
                 }
                 addCommandToPreviousCommandList();
+                break;
+            }
+            case "emt clear --previous-commands-list": {
+                if (previousCommandsList.length === 0) {
+                    setResults(["Sorry, Can't Find Commands In Previous Command List !!!"]);
+                } else {
+                    setPreviousCommandsList([]);
+                    setResults(["Please Wait While Clear Previous Commands List .."]);
+                    setTimeout(() => {
+                        setResults(["Ok!!, The Process is Successfuly ."]);
+                    }, 2500);
+                }
                 break;
             }
             case "emt close": {
@@ -115,6 +146,16 @@ const Terminal = ({ pageTitle }) => {
                 setTimeout(() => {
                     document.location.reload();
                 }, 2000);
+                break;
+            }
+            case "emt get --all-commands": {
+                setResults(allCommands);
+                addCommandToPreviousCommandList();
+                break;
+            }
+            case "emt get --use-statments": {
+                setResults(useStatmentsAsTerminalCommandResults);
+                addCommandToPreviousCommandList();
                 break;
             }
             default: {
@@ -194,7 +235,7 @@ const Terminal = ({ pageTitle }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {useStatments.map((statement, index) =>
+                        {useStatmentsAsTableData.map((statement, index) =>
                             <tr key={index}>
                                 {statement}
                             </tr>
@@ -217,7 +258,10 @@ const Terminal = ({ pageTitle }) => {
                     </div>
                 </div>
             }
-            {isOpenTerminal && <h6 className="welcome-message mb-4">Hi <span className="user-name fw-bold bg-success p-2 me-2 ms-2">{userName}</span> , The Terminal Is Running .</h6>}
+            {isOpenTerminal && 
+                <h6 className="welcome-message mb-4">Hi <span className="user-name fw-bold bg-success p-2 me-2 ms-2">{userName}</span> , The Terminal Is Running .</h6> &&
+                <h6 className="use-statments mb-4">If You Can't Remember The Commands, Please Write The Next Command: <span className="get-use-statement bg-secondary p-2 m-2 d-block">emt get --use-statments</span></h6>
+            }
             {error && <p className="alert alert-danger">{error}</p>}
             {isTerminalOpening && <div className="d-flex align-items-center bg-secondary p-3 loading-box">
                 <strong>Loading...</strong>

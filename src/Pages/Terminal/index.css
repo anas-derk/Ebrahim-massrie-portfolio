@@ -40,7 +40,7 @@
 }
 
 .terminal .terminal-control-box {
-  min-height: 400px;
+  height: 350px;
   width: 100%;
   background-color: #74215b;
   overflow: auto;
