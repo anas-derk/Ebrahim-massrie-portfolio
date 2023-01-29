@@ -97,6 +97,7 @@ const Terminal = ({ pageTitle }) => {
             case "emt cls": {
                 setIsTerminalHeaderVisible(false);
                 setResults([]);
+                setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
             }
@@ -108,6 +109,7 @@ const Terminal = ({ pageTitle }) => {
                     "machine learning and deep learning,",
                     "and I seek to build more modern applications in this field."
                 ]);
+                setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
             }
@@ -117,6 +119,7 @@ const Terminal = ({ pageTitle }) => {
                 } else {
                     setResults(previousCommandsList);
                 }
+                setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
             }
@@ -126,6 +129,7 @@ const Terminal = ({ pageTitle }) => {
                 } else {
                     setPreviousCommandsList([]);
                     setResults(["Please Wait While Clear Previous Commands List .."]);
+                    setCommandIndex(0);
                     setTimeout(() => {
                         setResults(["Ok!!, The Process is Successfuly ."]);
                     }, 2500);
@@ -134,6 +138,7 @@ const Terminal = ({ pageTitle }) => {
             }
             case "emt close": {
                 setResults(["Please Wait While Closing Ebrahim Messrie Terminal The Back To Home Page ..."]);
+                setCommandIndex(0);
                 setTimeout(() => {
                     navigate("/");
                 }, 3000);
@@ -141,6 +146,7 @@ const Terminal = ({ pageTitle }) => {
             }
             case "emt restart": {
                 setResults(["Ebrahim Massrie Terminal Restart Now .."]);
+                setCommandIndex(0);
                 setTimeout(() => {
                     document.location.reload();
                 }, 2000);
@@ -148,11 +154,13 @@ const Terminal = ({ pageTitle }) => {
             }
             case "emt get --all-commands": {
                 setResults(allCommands);
+                setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
             }
             case "emt get --use-statments": {
                 setResults(useStatmentsAsTerminalCommandResults);
+                setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
             }
@@ -179,6 +187,7 @@ const Terminal = ({ pageTitle }) => {
                     let newUserName = namePartsArray.join(" ");
                     // Start Handle Change User Name Process
                     setResults(["changing the username of the entered name ..."]);
+                    setCommandIndex(0);
                     localStorage.setItem("user-name", newUserName);
                     setTimeout(() => {
                         setResults(["The name has been changed successfully, and the terminal is restarting .."]);
@@ -192,36 +201,31 @@ const Terminal = ({ pageTitle }) => {
                         "Error, The Command Is Not Found !!",
                         "Please Write Any Command Valid ."
                     ]);
+                    setCommandIndex(0);
                 }
             }
         }
     }
 
-    document.addEventListener("keyup", (e) => {
-
-        handleKeyboardPressing(e.key);
-
-    });
-
     const handleKeyboardPressing = (key) => {
+
+        let previousCommandsListLength = previousCommandsList.length;
 
         if (key === "ArrowUp") {
 
-            if (previousCommandsList.length > 0) {
+            if (previousCommandsListLength > 0 && commandIndex < previousCommandsListLength) {
 
                 setCommand(previousCommandsList[commandIndex]);
 
+                setCommandIndex(commandIndex + 1);
+
             }
-            
-        }
-
-        if (key === "ArrowDown") {
-
-            console.log("arrow down");
 
         }
 
     }
+
+    document.addEventListener("keyup", (e) => handleKeyboardPressing(e.key));
 
     useEffect(() => {
 
@@ -275,9 +279,8 @@ const Terminal = ({ pageTitle }) => {
                         <input
                             type="text"
                             placeholder="Enter Your Name Here"
-                            className="form-control p-3 command-input"
+                            className="form-control p-3 user-name-input"
                             onChange={(e) => setUserName(e.target.value)}
-                            value={command}
                         />
                     </div>
                     <div className="col-md-4">
@@ -285,7 +288,7 @@ const Terminal = ({ pageTitle }) => {
                     </div>
                 </div>
             }
-            {isOpenTerminal && 
+            {isOpenTerminal &&
                 <h6 className="welcome-message mb-4">Hi <span className="user-name fw-bold bg-success p-2 me-2 ms-2">{userName}</span> , The Terminal Is Running .</h6> &&
                 <h6 className="use-statments mb-4">If You Can't Remember The Commands, Please Write The Next Command: <span className="get-use-statement bg-secondary p-2 m-2 d-block">emt get --use-statments</span></h6>
             }
