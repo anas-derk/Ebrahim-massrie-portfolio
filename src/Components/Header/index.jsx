@@ -11,19 +11,23 @@ const Header = () => {
             pageTitle: "Home",
         },
         {
-            route: "/",
-            pageTitle: "About",
+            route: "/introduction",
+            pageTitle: "Introduction",
         },
         {
-            route: "/",
+            route: "/about-me",
+            pageTitle: "About Me",
+        },
+        {
+            route: "/my-skills",
             pageTitle: "Skills",
         },
         {
-            route: "/",
+            route: "/my-services",
             pageTitle: "Services",
         },
         {
-            route: "/",
+            route: "/my-projects",
             pageTitle: "Projects",
         },
     ];

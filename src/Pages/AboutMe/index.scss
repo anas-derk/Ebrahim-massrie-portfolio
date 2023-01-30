@@ -1,0 +1,14 @@
+.about-me{
+    color: var(--main-color-two);
+    .contact-links{
+        li{
+            font-size: 33px;
+            .icon{
+                color: #7668bd;
+                background-color: var(--main-color-two);
+                transition: .5s;
+                border-radius: 3px;
+            }
+        }
+    }
+}

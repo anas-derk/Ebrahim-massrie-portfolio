@@ -1,17 +1,13 @@
 import { useEffect, Fragment } from "react";
 import "./index.min.css";
-import {
-    FaFacebookF,
-    FaLinkedinIn,
-    FaGithub,
-    FaInstagram,
-} from 'react-icons/fa';
-
 import { MdDoubleArrow } from "react-icons/md";
 import { useState } from "react";
 import Header from "../../Components/Header/index";
+import { useSelector } from "react-redux";
 
 const Introduction = ({ pageTitle }) => {
+
+    const linksIconsComponents = useSelector(state => state.linksIconsComponents);
 
     const [myName, setMyName] = useState("");
 
@@ -42,13 +38,6 @@ const Introduction = ({ pageTitle }) => {
         smothlyTextWriting("Junior Artificial Intelligence Engineer", setMyJobPosition);
         smothlyTextWriting("Junior level experince in Artificial Intelligence Engineering, and development knowledge, Producing The Best Apps With Good quality", setMyJobCaption, 25);
     }, []);
-
-    let linksIconsComponents = [
-        <FaFacebookF />,
-        <FaLinkedinIn />,
-        <FaGithub />,
-        <FaInstagram />,
-    ];
 
     return (
         // Start Home Page

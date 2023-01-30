@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 const Home = lazy(() => import("./Pages/Home/index.jsx"));
 const Introduction = lazy(() => import("./Pages/Introduction/index.jsx"));
 const Terminal = lazy(() => import("./Pages/Terminal/index.jsx"));
+const AboutMe = lazy(() => import("./Pages/AboutMe/index.jsx"));
 const PageNotFound = lazy(() => import("./Pages/404/index"));
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Home pageTitle="Ebrahim Massrie - Home" />}></Route>
             <Route path="/introduction" element={<Introduction pageTitle="Ebrahim Massrie - Introduction" />}></Route>
             <Route path="/terminal" element={<Terminal pageTitle="Ebrahim Massrie - Terminal" />}></Route>
+            <Route path="/about-me" element={<AboutMe pageTitle="Ebrahim Massrie - About Me" />}></Route>
             <Route path="*" element={<PageNotFound pageTitle="Page Not Found" />}></Route>
           </Routes>
         </Suspense>
