@@ -20,15 +20,15 @@ const Header = () => {
         },
         {
             route: "/my-skills",
-            pageTitle: "Skills",
+            pageTitle: "My Skills",
         },
         {
             route: "/my-services",
-            pageTitle: "Services",
+            pageTitle: "My Services",
         },
         {
             route: "/my-projects",
-            pageTitle: "Projects",
+            pageTitle: "My Projects",
         },
     ];
     const dispatch = useDispatch();
@@ -66,7 +66,7 @@ const Header = () => {
                         <ul className="navbar-nav">
                             {headerData.map((data, index) =>
                                 <li className="nav-item" key={index}>
-                                    <Link className="nav-link color-black" to={data.route}>{data.pageTitle}</Link>
+                                    {document.location.pathname !== data.route && <Link className="nav-link color-black" to={data.route}>{data.pageTitle}</Link>}
                                 </li>
                             )}
                             <li className="change-mode-icon" onClick={handleChangeMode}>

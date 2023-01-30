@@ -5,6 +5,7 @@ const Home = lazy(() => import("./Pages/Home/index.jsx"));
 const Introduction = lazy(() => import("./Pages/Introduction/index.jsx"));
 const Terminal = lazy(() => import("./Pages/Terminal/index.jsx"));
 const AboutMe = lazy(() => import("./Pages/AboutMe/index.jsx"));
+const MySkills = lazy(() => import("./Pages/MySkills/index.jsx"));
 const PageNotFound = lazy(() => import("./Pages/404/index"));
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/introduction" element={<Introduction pageTitle="Ebrahim Massrie - Introduction" />}></Route>
             <Route path="/terminal" element={<Terminal pageTitle="Ebrahim Massrie - Terminal" />}></Route>
             <Route path="/about-me" element={<AboutMe pageTitle="Ebrahim Massrie - About Me" />}></Route>
+            <Route path="/my-skills" element={<MySkills pageTitle="Ebrahim Massrie - My Skills" />}></Route>
             <Route path="*" element={<PageNotFound pageTitle="Page Not Found" />}></Route>
           </Routes>
         </Suspense>
