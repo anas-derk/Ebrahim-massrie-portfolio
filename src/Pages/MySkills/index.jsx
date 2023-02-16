@@ -21,6 +21,19 @@ const MySkills = ({ pageTitle }) => {
                 {/* Start Container */}
                 <div className="container">
                     <h1 className="page-name text-center">My Skills</h1>
+                    {/* Start Grid System */}
+                    <div className="row">
+                        {/* Start Column */}
+                        <div className="col-md-6">
+                            {/* Start Grid System */}
+                            <div className="row">
+                                
+                            </div>
+                            {/* End Grid System */}
+                        </div>
+                        {/* End Column */}
+                    </div>
+                    {/* End Grid System */}
                 </div>
                 {/* End Container */}
             </div>

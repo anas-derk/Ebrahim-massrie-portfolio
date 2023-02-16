@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./index.min.css";
 import { useNavigate } from "react-router-dom";
-import TerminalData from "./terminal_data";
+import TerminalJsonData from "./terminal_data.json";
 
 const Terminal = ({ pageTitle }) => {
 
@@ -24,6 +24,8 @@ const Terminal = ({ pageTitle }) => {
     const [previousCommandsList, setPreviousCommandsList] = useState([]);
 
     const [commandIndex, setCommandIndex] = useState(0);
+    
+    let useStatementsAsTerminalCommandResults = TerminalJsonData.useStatementsAsTerminalCommandResults.map((useStatement) => `${useStatement.id}. ${useStatement.statement}`);
 
     const addCommandToPreviousCommandList = () => {
         if (!previousCommandsList.includes(command)) {
@@ -126,13 +128,13 @@ const Terminal = ({ pageTitle }) => {
                 break;
             }
             case "emt get --all-commands": {
-                setResults(TerminalData.allCommands);
+                setResults(TerminalJsonData.allCommands);
                 setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
             }
-            case "emt get --use-statments": {
-                setResults(TerminalData.useStatmentsAsTerminalCommandResults);
+            case "emt get --use-statements": {
+                setResults(useStatementsAsTerminalCommandResults);
                 setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
@@ -233,13 +235,19 @@ const Terminal = ({ pageTitle }) => {
                 <table className="how-to-use-terminal-table w-100 mb-4">
                     <thead>
                         <tr>
-                            <th className="bg-secondary p-2 use-statments ps-3">use statments:</th>
+                            <th className="bg-secondary p-2 use-statments ps-3">use statements:</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {TerminalData.useStatmentsAsTableData.map((statement, index) =>
-                            <tr key={index}>
-                                {statement}
+                        {TerminalJsonData.useStatments.map((useStatement) =>
+                            <tr key={useStatement.id}>
+                                <td>
+                                    {useStatement.id}. &nbsp;
+                                    {useStatement.statement}
+                                    {useStatement.command &&
+                                        <span className="bg-secondary p-2 m-2 d-block">{useStatement.command}</span>
+                                    }
+                                </td>
                             </tr>
                         )}
                     </tbody>
@@ -262,7 +270,7 @@ const Terminal = ({ pageTitle }) => {
             }
             {isOpenTerminal &&
                 <h6 className="welcome-message mb-4">Hi <span className="user-name fw-bold bg-success p-2 me-2 ms-2">{userName}</span> , The Terminal Is Running .</h6> &&
-                <h6 className="use-statments mb-4">If You Can't Remember The Commands, Please Write The Next Command: <span className="get-use-statement bg-secondary p-2 m-2 d-block">emt get --use-statments</span></h6>
+                <h6 className="use-statments mb-4">If You Can't Remember The Commands, Please Write The Next Command: <span className="get-use-statement bg-secondary p-2 m-2 d-block">emt get --use-statements</span></h6>
             }
             {error && <p className="alert alert-danger">{error}</p>}
             {isTerminalOpening && <div className="d-flex align-items-center bg-secondary p-3 loading-box">
