@@ -1,0 +1,21 @@
+.contact-me{
+    color: var(--main-color-two);
+    .contact-me-form{
+        textarea, input{
+            background-color: #231f35;
+            border: none;
+            color: #FFF;
+        }
+        textarea{
+            resize: none;
+            height: 150px;
+        }
+        .send-message-btn{
+            background-color: #7668bd;
+            color: #FFF;
+            &:hover {
+                background-color: #7668bd;
+            }
+        }
+    }
+}

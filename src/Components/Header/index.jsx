@@ -3,34 +3,9 @@ import "./index.min.css";
 import { MdOutlineDarkMode, MdOutlineWbSunny } from "react-icons/md";
 import { useDispatch, useStore } from "react-redux";
 import { useState } from "react";
+import headerData from "./header_data";
 
 const Header = () => {
-    let headerData = [
-        {
-            route: "/",
-            pageTitle: "Home",
-        },
-        {
-            route: "/introduction",
-            pageTitle: "Introduction",
-        },
-        {
-            route: "/about-me",
-            pageTitle: "About Me",
-        },
-        {
-            route: "/my-skills",
-            pageTitle: "My Skills",
-        },
-        {
-            route: "/my-services",
-            pageTitle: "My Services",
-        },
-        {
-            route: "/my-projects",
-            pageTitle: "My Projects",
-        },
-    ];
     const dispatch = useDispatch();
     const store = useStore();
     const [iconState, setIconState] = useState(1);
