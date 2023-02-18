@@ -29,13 +29,7 @@ const ContactMe = ({ pageTitle }) => {
                     <div className="row">
                         {/* Start Column */}
                         <div className="col-md-4">
-                            <ul className="contact-links-list">
-                                {linksIconsComponents.map((icon, index) =>
-                                    <li className="contact-link" key={index}>
-                                        {icon}
-                                    </li>  
-                                )}
-                            </ul>
+                            aav
                         </div>
                         {/* End Column */}
                         {/* Start Column */}
@@ -51,12 +45,27 @@ const ContactMe = ({ pageTitle }) => {
                                         <input type="email" placeholder="Email" className="form-control p-4" />
                                     </div>
                                 </div>
+                                {/* End Grid System */}
                                 <input type="text" placeholder="Project" className="form-control mb-4 p-4" />
                                 <textarea placeholder="Message" className="form-control mb-4 p-4" />
-                                <button type="submit" className="btn send-message-btn p-3">
-                                    Send Message &nbsp;
-                                    <MdDoubleArrow />
-                                </button>
+                                {/* Start Grid System */}
+                                <div className="row">
+                                    <div className="col-md-4">
+                                        <button type="submit" className="btn send-message-btn p-3 w-100">
+                                            Send Message &nbsp;
+                                            <MdDoubleArrow />
+                                        </button>
+                                    </div>
+                                    <div className="col-md-8">
+                                        <ul className="contact-links text-center d-flex h-100 align-items-center">
+                                            {linksIconsComponents.map((icon, index) =>
+                                                <li className="link p-2 pe-3 ps-3" key={index}>
+                                                    <a href="#" className="icon">{icon}</a>
+                                                </li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                </div>
                                 {/* End Grid System */}
                             </form>
                             {/* End Contact Me Form */}

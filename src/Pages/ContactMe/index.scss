@@ -17,5 +17,16 @@
                 background-color: #7668bd;
             }
         }
+        .contact-links{
+            justify-content: space-around;
+            font-size: 25px;
+            .link{
+                background-color: #231f35;
+                border-radius: 5px;
+                a{
+                    color: #FFF;
+                }
+            }
+        }
     }
 }
