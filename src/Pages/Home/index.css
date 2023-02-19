@@ -34,7 +34,17 @@
 }
 
 .home .control-box .summary {
-  animation: summaryAnimation 1s ease-in 0s;
+  animation: summaryAnimation 1s ease-in 0s, bg-spin 3s linear infinite;
+  --border-size: 3px;
+  --border-angle: 0turn;
+  background-image: conic-gradient(from var(--border-angle), #213, #112 50%, #213), conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
+  background-size: calc(100% - (var(--border-size) * 2)) calc(100% - (var(--border-size) * 2)), cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.home .control-box .summary .open-terminal-btn, .home .control-box .summary .open-introduction-page-btn {
+  animation: btnAnimation 2s ease-in 0s;
 }
 
 @keyframes timerAnimation {
@@ -57,6 +67,26 @@
   }
   100% {
     opacity: 100%;
-    box-shadow: 1px 1px 10px red, -1px -1px 10px #3939b4;
   }
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+@keyframes btnAnimation {
+  from {
+    transform: scale(0.5, 0.5);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
 }
