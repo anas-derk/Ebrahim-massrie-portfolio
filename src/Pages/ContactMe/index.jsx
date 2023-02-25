@@ -4,7 +4,8 @@ import Header from "../../Components/Header";
 import "./index.min.css";
 import { MdDoubleArrow } from "react-icons/md";
 import { useSelector } from "react-redux";
-import contact_links from "../../Assets/contact_links.json";
+import contact_links from "../../Assets/myData/contact_links.json";
+import image4 from "../../Assets/images/photo_6039736428323258924_x.jpg";
 
 const ContactMe = ({ pageTitle }) => {
 
@@ -13,7 +14,9 @@ const ContactMe = ({ pageTitle }) => {
     const contact_links_arr = Object.values(contact_links);
 
     const sendMessage = (e) => {
+
         e.preventDefault();
+
         console.log("yes");
     }
 
@@ -34,28 +37,28 @@ const ContactMe = ({ pageTitle }) => {
                 <div className="container">
                     <h1 className="page-name text-center mb-5">Contact Me</h1>
                     {/* Start Grid System */}
-                    <div className="row">
+                    <div className="row align-items-center">
                         {/* Start Column */}
-                        <div className="col-md-4">
-                            aav
+                        <div className="col-md-5">
+                            <img src={image4} alt="Image Exist !!" className="my-image" />
                         </div>
                         {/* End Column */}
                         {/* Start Column */}
-                        <div className="col-md-8">
+                        <div className="col-md-7">
                             {/* Start Contact Me Form */}
                             <form className="contact-me-form" onSubmit={sendMessage}>
                                 {/* Start Grid System */}
                                 <div className="row mb-4">
                                     <div className="col-md">
-                                        <input type="text" placeholder="Name" className="form-control p-4" />
+                                        <input type="text" placeholder="Name" className="form-control p-4" required />
                                     </div>
                                     <div className="col-md">
-                                        <input type="email" placeholder="Email" className="form-control p-4" />
+                                        <input type="email" placeholder="Email" className="form-control p-4" required />
                                     </div>
                                 </div>
                                 {/* End Grid System */}
-                                <input type="text" placeholder="Project" className="form-control mb-4 p-4" />
-                                <textarea placeholder="Message" className="form-control mb-4 p-4" />
+                                <input type="text" placeholder="Project" className="form-control mb-4 p-4" required />
+                                <textarea placeholder="Message" className="form-control mb-4 p-4" required />
                                 {/* Start Grid System */}
                                 <div className="row">
                                     <div className="col-md-4">

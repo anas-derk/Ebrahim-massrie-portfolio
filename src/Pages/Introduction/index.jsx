@@ -5,7 +5,8 @@ import { useState } from "react";
 import Header from "../../Components/Header/index";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import contact_links from "../../Assets/contact_links.json";
+import contact_links from "../../Assets/myData/contact_links.json";
+import image4 from "../../Assets/images/photo_6039736428323258927_y.jpg";
 
 const Introduction = ({ pageTitle }) => {
 
@@ -59,7 +60,7 @@ const Introduction = ({ pageTitle }) => {
                         </div>
                     </div>
                     <div className="col-md">
-                        mm
+                        <img src={image4} alt="Image Exist !!" className="my-image" />
                     </div>
                 </div>
                 {/* End Grid System From Bootstrap Framework */}

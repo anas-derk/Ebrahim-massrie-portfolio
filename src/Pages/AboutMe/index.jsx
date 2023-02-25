@@ -3,7 +3,8 @@ import Header from "../../Components/Header";
 import { Fragment, useEffect } from "react";
 import "./index.min.css";
 import { useSelector } from "react-redux";
-import contact_links from "../../Assets/contact_links.json";
+import contact_links from "../../Assets/myData/contact_links.json";
+import image4 from "../../Assets/images/photo_6039736428323258924_x.jpg";
 
 const AboutMe = ({ pageTitle }) => {
 
@@ -15,7 +16,7 @@ const AboutMe = ({ pageTitle }) => {
 
         document.title = pageTitle;
 
-        document.querySelector(".about-me").style.height = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
+        document.querySelector(".about-me").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
     }, []);
 
@@ -23,15 +24,15 @@ const AboutMe = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start About Me Page */}
-            <div className="about-me pt-5">
+            <div className="about-me pt-5 pb-5">
                 {/* Start Container */}
                 <div className="container">
                     <h1 className="page-name text-center mb-5">About Me</h1>
                     {/* Start Grid System */}
                     <div className="row">
                         {/* Start Column */}
-                        <div className="col-md-6">
-                            hh
+                        <div className="col-md-6 text-center">
+                            <img src={image4} alt="Image Exist !!" className="my-image" />
                         </div>
                         {/* End Column */}
                         {/* Start Column */}

@@ -2,6 +2,12 @@
   color: var(--main-color-two);
 }
 
+.contact-me .my-image {
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--main-color-two);
+}
+
 .contact-me .contact-me-form textarea, .contact-me .contact-me-form input {
   background-color: #231f35;
   border: none;
