@@ -31,12 +31,12 @@
   text-align: justify;
 }
 
-.introduction .row .summary button.contact-me-btn {
+.introduction .row .summary .contact-me-btn {
   background-color: #7668bd;
   color: #FFF;
 }
 
-.introduction .row .summary button.contact-me-btn:hover {
+.introduction .row .summary .contact-me-btn:hover {
   background-color: #7668bd;
 }
 

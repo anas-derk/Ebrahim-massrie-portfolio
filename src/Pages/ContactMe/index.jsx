@@ -4,10 +4,18 @@ import Header from "../../Components/Header";
 import "./index.min.css";
 import { MdDoubleArrow } from "react-icons/md";
 import { useSelector } from "react-redux";
+import contact_links from "../../Assets/contact_links.json";
 
 const ContactMe = ({ pageTitle }) => {
 
     const linksIconsComponents = useSelector(state => state.linksIconsComponents);
+
+    const contact_links_arr = Object.values(contact_links);
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+        console.log("yes");
+    }
 
     useEffect(() => {
 
@@ -35,7 +43,7 @@ const ContactMe = ({ pageTitle }) => {
                         {/* Start Column */}
                         <div className="col-md-8">
                             {/* Start Contact Me Form */}
-                            <form className="contact-me-form">
+                            <form className="contact-me-form" onSubmit={sendMessage}>
                                 {/* Start Grid System */}
                                 <div className="row mb-4">
                                     <div className="col-md">
@@ -51,7 +59,10 @@ const ContactMe = ({ pageTitle }) => {
                                 {/* Start Grid System */}
                                 <div className="row">
                                     <div className="col-md-4">
-                                        <button type="submit" className="btn send-message-btn p-3 w-100">
+                                        <button
+                                            type="submit"
+                                            className="btn send-message-btn p-3 w-100"
+                                        >
                                             Send Message &nbsp;
                                             <MdDoubleArrow />
                                         </button>
@@ -60,7 +71,7 @@ const ContactMe = ({ pageTitle }) => {
                                         <ul className="contact-links text-center d-flex h-100 align-items-center">
                                             {linksIconsComponents.map((icon, index) =>
                                                 <li className="link p-2 pe-3 ps-3" key={index}>
-                                                    <a href="#" className="icon">{icon}</a>
+                                                    <a href={contact_links_arr[index]} className="icon" target="_blank">{icon}</a>
                                                 </li>
                                             )}
                                         </ul>

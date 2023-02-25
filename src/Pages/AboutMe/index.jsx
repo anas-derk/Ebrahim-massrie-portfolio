@@ -3,10 +3,13 @@ import Header from "../../Components/Header";
 import { Fragment, useEffect } from "react";
 import "./index.min.css";
 import { useSelector } from "react-redux";
+import contact_links from "../../Assets/contact_links.json";
 
 const AboutMe = ({ pageTitle }) => {
 
     const linksIconsComponents = useSelector(state => state.linksIconsComponents);
+
+    const contact_links_arr = Object.values(contact_links);
 
     useEffect(() => {
 
@@ -58,7 +61,7 @@ const AboutMe = ({ pageTitle }) => {
                             <ul className="contact-links mt-5 text-center d-flex justify-content-center">
                                 {linksIconsComponents.map((icon, index) =>
                                     <li className="icon me-5" key={index}>
-                                        <a href="#" className="icon p-2 ps-3 pe-3">{icon}</a>
+                                        <a href={contact_links_arr[index]} className="icon p-2 ps-3 pe-3" target="_blank">{icon}</a>
                                     </li>
                                 )}
                             </ul>

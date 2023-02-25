@@ -4,6 +4,8 @@ import { MdDoubleArrow } from "react-icons/md";
 import { useState } from "react";
 import Header from "../../Components/Header/index";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import contact_links from "../../Assets/contact_links.json";
 
 const Introduction = ({ pageTitle }) => {
 
@@ -16,6 +18,8 @@ const Introduction = ({ pageTitle }) => {
     const [myJobCaption, setMyJobCaption] = useState("");
 
     const smothlyTextWriting = useSelector(state => state.smothlyTextWriting);
+
+    const contact_links_arr = Object.values(contact_links);
 
     useEffect(() => {
         document.title = pageTitle;
@@ -38,7 +42,7 @@ const Introduction = ({ pageTitle }) => {
                         <ul className="contact-links">
                             {linksIconsComponents.map((icon, index) =>
                                 <li className="icon" key={index}>
-                                    <a href="#" className="icon">{icon}</a>
+                                    <a href={contact_links_arr[index]} className="icon" target="_blank">{icon}</a>
                                 </li>
                             )}
                         </ul>
@@ -48,10 +52,10 @@ const Introduction = ({ pageTitle }) => {
                             <h1 className="fw-bold my-name">{myName}</h1>
                             <h5 className="job-position fw-bold">{myJobPosition}</h5>
                             <p className="job-caption mb-4">{myJobCaption}</p>
-                            <button className="btn p-3 contact-me-btn">
+                            <Link className="btn p-3 contact-me-btn" to="/contact-me">
                                 Constact me &nbsp;
                                 <MdDoubleArrow />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="col-md">
