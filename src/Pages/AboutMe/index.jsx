@@ -70,10 +70,14 @@ const AboutMe = ({ pageTitle }) => {
                         {/* End Column */}
                         {/* Start Column */}
                         <div className="col-md-6">
-                            <button className="btn btn-danger p-3 d-block mt-5 mx-auto form-control">
-                                <span className="me-2">Download CV</span>
+                            <a
+                                className="btn btn-danger p-3 d-block mt-5 mx-auto form-control"
+                                href="https://seirah.com/sbc6fe20246?lang=en"
+                                target="_blank"
+                            >
+                                <span className="me-2">Show CV</span>
                                 <FaDownload />
-                            </button>
+                            </a>
                         </div>
                         {/* End Column */}
                     </div>

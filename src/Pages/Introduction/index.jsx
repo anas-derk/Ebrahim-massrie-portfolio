@@ -40,7 +40,7 @@ const Introduction = ({ pageTitle }) => {
                 {/* Start Grid System From Bootstrap Framework */}
                 <div className="row align-items-center" >
                     <div className="col-md-2">
-                        <ul className="contact-links">
+                        <ul className="contact-links animate__fadeInLeft">
                             {linksIconsComponents.map((icon, index) =>
                                 <li className="icon" key={index}>
                                     <a href={contact_links_arr[index]} className="icon" target="_blank">{icon}</a>
