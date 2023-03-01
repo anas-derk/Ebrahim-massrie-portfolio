@@ -2,6 +2,10 @@
   color: var(--main-color-two);
 }
 
+.about-me .page-name {
+  animation: pageNameAnimation 1s ease-in-out 0s;
+}
+
 .about-me .my-image {
   width: 100%;
   height: 450px;
@@ -17,4 +21,20 @@
   background-color: var(--main-color-two);
   transition: .5s;
   border-radius: 3px;
+}
+
+@keyframes pageNameAnimation {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0);
+  }
+  25% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(50%);
+  }
+  25% {
+    transform: translateY(-50%);
+  }
 }

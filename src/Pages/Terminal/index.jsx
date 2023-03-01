@@ -128,7 +128,8 @@ const Terminal = ({ pageTitle }) => {
                 break;
             }
             case "emt get --all-commands": {
-                setResults(TerminalJsonData.allCommands);
+                const allCommands = TerminalJsonData.allCommands.map((commandInfo) => commandInfo.command);
+                setResults(allCommands);
                 setCommandIndex(0);
                 addCommandToPreviousCommandList();
                 break;
@@ -264,7 +265,7 @@ const Terminal = ({ pageTitle }) => {
                         />
                     </div>
                     <div className="col-md-4">
-                        <button className="btn btn-success p-3 w-100 open-terminal-btn" onClick={openTerminal}>Open Terminal</button>
+                        <button className="btn btn-success p-3 open-terminal-btn" onClick={openTerminal}>Open Terminal</button>
                     </div>
                 </div>
             }
