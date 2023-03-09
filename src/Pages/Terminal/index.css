@@ -42,14 +42,20 @@
   border-radius: 5px;
 }
 
+.terminal .open-terminal-btn {
+  animation-delay: 1.3s;
+}
+
+@media (max-width: 767px) {
+  .terminal .user-name-input {
+    margin-bottom: 25px;
+  }
+}
+
 .terminal .user-name-input, .terminal .open-terminal-btn {
   width: 0;
   opacity: 0;
   animation: fadeInRight 1s ease-in-out 1s forwards;
-}
-
-.terminal .open-terminal-btn {
-  animation-delay: 1.3s;
 }
 
 .terminal .terminal-control-box {

@@ -32,13 +32,18 @@
     .loading-box{
         border-radius: 5px;
     }
+    .open-terminal-btn {
+        animation-delay: 1.3s;
+    }
+    .user-name-input{
+        @media (max-width: 767px) {
+            margin-bottom: 25px;
+        }
+    }
     .user-name-input, .open-terminal-btn{
         width: 0;
         opacity: 0;
         animation: fadeInRight 1s ease-in-out 1s forwards;
-    }
-    .open-terminal-btn {
-        animation-delay: 1.3s;
     }
     .terminal-control-box {
         height: 350px;
