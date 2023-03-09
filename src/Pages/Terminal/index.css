@@ -60,8 +60,20 @@
   border-radius: 8px;
 }
 
+.terminal .terminal-control-box .terminal-body .terminal-control-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .terminal .terminal-control-box .terminal-body .terminal-control-form span {
   border-radius: 5px;
+}
+
+@media (max-width: 767px) {
+  .terminal .terminal-control-box .terminal-body .terminal-control-form span {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 .terminal .terminal-control-box .terminal-body .terminal-control-form .command-input {
@@ -69,6 +81,11 @@
   border: none;
   outline: none;
   color: #FFF;
+  flex-grow: 2;
+}
+
+.terminal .terminal-control-box .terminal-body .terminal-control-form .command-input::placeholder {
+  color: #CCC;
 }
 
 @keyframes zoom-in {

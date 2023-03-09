@@ -48,14 +48,24 @@
         border-radius: 8px;
         .terminal-body{
             .terminal-control-form{
+                display: flex;
+                flex-wrap: wrap;
                 span{
                     border-radius: 5px;
+                    @media (max-width: 767px) {
+                        width: 100%;
+                        margin-bottom: 10px;
+                    }
                 }
                 .command-input{
                     background: none;
                     border: none;
                     outline: none;
                     color: #FFF;
+                    flex-grow: 2;
+                    &::placeholder{
+                        color: #CCC;
+                    }
                 }
             }
         }
