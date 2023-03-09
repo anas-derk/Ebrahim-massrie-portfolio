@@ -32,27 +32,27 @@ const ContactMe = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start Contact Me Page */}
-            <div className="contact-me pt-5 pb-5">
+            <div className="contact-me pt-5 pb-5 d-flex align-items-center">
                 {/* Start Container */}
                 <div className="container">
                     <h1 className="page-name text-center mb-5">Contact Me</h1>
                     {/* Start Grid System */}
                     <div className="row align-items-center">
                         {/* Start Column */}
-                        <div className="col-md-5">
+                        <div className="col-lg-5 img-box">
                             <img src={image4} alt="Image Exist !!" className="my-image" />
                         </div>
                         {/* End Column */}
                         {/* Start Column */}
-                        <div className="col-md-7">
+                        <div className="col-lg-7">
                             {/* Start Contact Me Form */}
                             <form className="contact-me-form" onSubmit={sendMessage}>
                                 {/* Start Grid System */}
                                 <div className="row mb-4">
-                                    <div className="col-md">
-                                        <input type="text" placeholder="Name" className="form-control p-4" required />
+                                    <div className="col-lg">
+                                        <input type="text" placeholder="Name" className="form-control p-4 name-input" required />
                                     </div>
-                                    <div className="col-md">
+                                    <div className="col-lg">
                                         <input type="email" placeholder="Email" className="form-control p-4" required />
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@ const ContactMe = ({ pageTitle }) => {
                                         </button>
                                     </div>
                                     <div className="col-md-8">
-                                        <ul className="contact-links text-center d-flex h-100 align-items-center">
+                                        <ul className="contact-links text-center d-flex h-100 align-items-center flex-wrap">
                                             {linksIconsComponents.map((icon, index) =>
                                                 <li className="link p-2 pe-3 ps-3" key={index}>
                                                     <a href={contact_links_arr[index]} className="icon" target="_blank">{icon}</a>

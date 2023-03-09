@@ -1,15 +1,25 @@
 .contact-me{
     color: var(--main-color-two);
-    .my-image{
-        width: 100%;
-        height: 100%;
-        border: 3px solid var(--main-color-two);
+    .img-box{
+        .my-image{
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--main-color-two);
+        }
+        @media (max-width: 991px) {
+            margin-bottom: 1.5rem;
+        }
     }
     .contact-me-form{
         textarea, input{
             background-color: #231f35;
             border: none;
             color: #FFF;
+        }
+        @media (max-width: 991px) {
+            .name-input{
+                margin-bottom: 1.5rem;
+            }
         }
         textarea{
             resize: none;
@@ -20,6 +30,12 @@
             color: #FFF;
             &:hover {
                 background-color: #7668bd;
+            }
+            @media (max-width: 767px) {
+                margin-bottom: 1.5rem;
+            }
+            @media (min-width: 992px) and (max-width: 1199px) {
+                font-size: 14px;
             }
         }
         .contact-links{
