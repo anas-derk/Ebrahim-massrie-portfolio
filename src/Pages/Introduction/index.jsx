@@ -24,7 +24,7 @@ const Introduction = ({ pageTitle }) => {
 
     useEffect(() => {
         document.title = pageTitle;
-        document.querySelector(".introduction").style.height = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
+        document.querySelector(".introduction").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
         smothlyTextWriting("Hi, I'am Ebrahim Massrie |", setMyName);
         smothlyTextWriting("Junior Artificial Intelligence Engineer", setMyJobPosition);
         smothlyTextWriting("Junior level experince in Artificial Intelligence Engineering, and development knowledge, Producing The Best Apps With Good quality", setMyJobCaption, 25);
@@ -39,7 +39,7 @@ const Introduction = ({ pageTitle }) => {
             <div className="introduction">
                 {/* Start Grid System From Bootstrap Framework */}
                 <div className="row align-items-center" >
-                    <div className="col-md-2">
+                    <div className="col-lg-2">
                         <ul className="contact-links animate__fadeInLeft">
                             {linksIconsComponents.map((icon, index) =>
                                 <li className="icon" key={index}>
@@ -48,7 +48,7 @@ const Introduction = ({ pageTitle }) => {
                             )}
                         </ul>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-lg-6">
                         <div className="summary">
                             <h1 className="fw-bold my-name">{myName}</h1>
                             <h5 className="job-position fw-bold">{myJobPosition}</h5>
@@ -59,7 +59,7 @@ const Introduction = ({ pageTitle }) => {
                             </Link>
                         </div>
                     </div>
-                    <div className="col-md">
+                    <div className="col-lg">
                         <img src={image4} alt="Image Exist !!" className="my-image" />
                     </div>
                 </div>

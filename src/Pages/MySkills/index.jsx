@@ -9,7 +9,7 @@ const MySkills = ({ pageTitle }) => {
 
         document.title = pageTitle;
 
-        document.querySelector(".my-skills").style.height = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
+        document.querySelector(".my-skills").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
         
     });
 

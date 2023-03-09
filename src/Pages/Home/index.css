@@ -5,6 +5,8 @@
 
 .home .control-box {
   min-height: inherit;
+  max-width: 100%;
+  margin: 0;
 }
 
 .home .control-box .timer {
