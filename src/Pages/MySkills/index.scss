@@ -1,3 +1,14 @@
 .my-skills{
-    color: var(--main-color-two);
+    color: #FFF;
+    .skill-box{
+        // border: 1px dashed #EEE;
+        border-radius: 5px;
+        .skill-icon{
+            font-size: 25px;
+        }
+        .skill-details-open-arrow{
+            font-size: 28px;
+            cursor: pointer;
+        }
+    }
 }
