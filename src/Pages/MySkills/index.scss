@@ -1,7 +1,6 @@
 .my-skills{
     color: #FFF;
     .skill-box{
-        // border: 1px dashed #EEE;
         border-radius: 5px;
         .skill-icon{
             font-size: 25px;
@@ -9,6 +8,24 @@
         .skill-details-open-arrow{
             font-size: 28px;
             cursor: pointer;
+        }
+        .skill-details-table{
+            border: 2px dashed #FFF;
+            .tech-number span{
+                background-color: var(--main-background-color);
+                display: inline-block;
+                width: 40px;
+                padding: 5px;
+                font-size: 22px;
+                color: var(--main-color-two);
+                border-left: 3px solid #000;
+                border-top-right-radius: 10px;
+            }
+            th, td {
+                border: 2px dashed #FFF;
+                padding: 10px;
+                text-align: center;
+            }
         }
     }
 }

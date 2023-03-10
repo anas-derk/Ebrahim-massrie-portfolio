@@ -5,7 +5,7 @@ import { useState } from "react";
 import Header from "../../Components/Header/index";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import contact_links from "../../Assets/myData/contact_links.json";
+import my_data from "../../Assets/myData/my_data.json";
 import image4 from "../../Assets/images/photo_6039736428323258927_y.jpg";
 
 const Introduction = ({ pageTitle }) => {
@@ -20,7 +20,7 @@ const Introduction = ({ pageTitle }) => {
 
     const smothlyTextWriting = useSelector(state => state.smothlyTextWriting);
 
-    const contact_links_arr = Object.values(contact_links);
+    const contact_links_arr = Object.values(my_data.contact_me_links);
 
     useEffect(() => {
         document.title = pageTitle;

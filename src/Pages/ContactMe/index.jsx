@@ -4,14 +4,14 @@ import Header from "../../Components/Header";
 import "./index.min.css";
 import { MdDoubleArrow } from "react-icons/md";
 import { useSelector } from "react-redux";
-import contact_links from "../../Assets/myData/contact_links.json";
+import my_data from "../../Assets/myData/my_data.json";
 import image4 from "../../Assets/images/photo_6039736428323258924_x.jpg";
 
 const ContactMe = ({ pageTitle }) => {
 
     const linksIconsComponents = useSelector(state => state.linksIconsComponents);
 
-    const contact_links_arr = Object.values(contact_links);
+    const contact_links_arr = Object.values(my_data.contact_me_links);
 
     const sendMessage = (e) => {
 

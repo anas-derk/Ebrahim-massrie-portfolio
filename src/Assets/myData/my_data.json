@@ -1,0 +1,42 @@
+{
+    "contact_me_links": {
+        "facebook": "https://www.facebook.com/profile.php?id=100008270864447&mibextid=ZbWKwL",
+        "linkedin": "https://www.linkedin.com/in/ebrahim-massrie-14b6811b0",
+        "github": "https://github.com/EbrahimMassrie963",
+        "instagram": "https://www.instagram.com/ebrahimmassrie/",
+        "email": "ebrahimmassrie963@gmail.com",
+        "tel": "+963931631370"
+    },
+    "skills": [
+        {
+            "id": 1,
+            "skill_name": "Front End Developer",
+            "experince": "More Than 4 Years",
+            "skill_tech_details": [
+                {
+                    "tech_name": "Html",
+                    "level": "Good"
+                },
+                {
+                    "tech_name": "CSS",
+                    "level": "Very Good"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "skill_name": "Back End Developer",
+            "experince": "More Than 2 Years",
+            "skill_tech_details": [
+                {
+                    "tech_name": "Node.js",
+                    "level": "Good"
+                },
+                {
+                    "tech_name": "Express Js",
+                    "level": "Normal"
+                }
+            ]
+        }
+    ]
+}
