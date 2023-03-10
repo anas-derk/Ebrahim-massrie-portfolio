@@ -1,7 +1,13 @@
 .header {
+    border-bottom: 1px solid var(--main-color-two);
     .container{
         .navbar-brand{
             color: var(--main-color-two);
+        }
+        .navbar-toggler{
+            color: var(--main-color-two);
+            border: 2px solid var(--main-color-two);
+            font-size: 25px;
         }
         .nav-link{
             color: var(--main-color-two);

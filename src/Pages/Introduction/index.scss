@@ -59,6 +59,7 @@
                     transition: .5s;
                     &:hover {
                         background-color: var(--main-color-two);
+                        color: var(--main-background-color);
                         padding: 10px;
                         border-radius: 3px;
                     }

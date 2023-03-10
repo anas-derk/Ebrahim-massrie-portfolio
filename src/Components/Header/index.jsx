@@ -4,6 +4,7 @@ import { MdOutlineDarkMode, MdOutlineWbSunny } from "react-icons/md";
 import { useDispatch, useStore } from "react-redux";
 import { useState } from "react";
 import headerData from "./header_data";
+import { HiOutlineBars3 } from "react-icons/hi2";
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const Header = () => {
                 <div className="container">
                     <span className="navbar-brand fw-bold">Ebrahim Massrie</span>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        <HiOutlineBars3 />
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
