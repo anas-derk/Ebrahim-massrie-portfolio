@@ -2,8 +2,8 @@ import Header from "../../Components/Header/index";
 import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import "./index.min.css";
-import { FaFacebookF } from 'react-icons/fa';
-import { MdArrowDropUp } from "react-icons/md";
+import { RiCodeBoxLine } from 'react-icons/ri';
+import { BsArrowDownSquare } from "react-icons/bs";
 import my_data from "../../Assets/myData/my_data.json";
 
 const MySkills = ({ pageTitle }) => {
@@ -46,7 +46,7 @@ const MySkills = ({ pageTitle }) => {
                                 <div className="row align-items-center skill-box pt-3 pb-3 bg-secondary">
                                     {/* Start Column */}
                                     <div className="col-md-1 text-center">
-                                        <FaFacebookF className="skill-icon" />
+                                        <RiCodeBoxLine className="skill-icon" />
                                     </div>
                                     {/* End Column */}
                                     {/* Start Column */}
@@ -57,7 +57,7 @@ const MySkills = ({ pageTitle }) => {
                                     {/* End Column */}
                                     {/* Start Column */}
                                     <div className="col-md-1 text-center">
-                                        <MdArrowDropUp className="skill-details-open-arrow"
+                                        <BsArrowDownSquare className="skill-details-open-arrow"
                                             onClick={() => open_skill_details_box_func(index)}
                                         />
                                     </div>
