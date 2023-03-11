@@ -46,7 +46,7 @@ const MySkills = ({ pageTitle }) => {
                                 <div className="row align-items-center skill-box pt-3 pb-3 bg-secondary">
                                     {/* Start Column */}
                                     <div className="col-md-1 text-center">
-                                        <RiCodeBoxLine className="skill-icon" />
+                                        <span className="skill-num">{index + 1}</span>
                                     </div>
                                     {/* End Column */}
                                     {/* Start Column */}

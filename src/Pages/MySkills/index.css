@@ -10,8 +10,14 @@
   border-radius: 5px;
 }
 
-.my-skills .skills-info .skill-box .skill-icon {
-  font-size: 25px;
+.my-skills .skills-info .skill-box .skill-num {
+  display: inline-block;
+  background-color: #222;
+  width: 35px;
+  font-size: 23px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 1px solid #FFF;
 }
 
 .my-skills .skills-info .skill-box .skill-details-open-arrow {

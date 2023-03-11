@@ -6,8 +6,14 @@
         }
         .skill-box{
             border-radius: 5px;
-            .skill-icon{
-                font-size: 25px;
+            .skill-num{
+                display: inline-block;
+                background-color: #222;
+                width: 35px;
+                font-size: 23px;
+                border-radius: 5px;
+                font-weight: bold;
+                border: 1px solid #FFF;
             }
             .skill-details-open-arrow{
                 font-size: 28px;
