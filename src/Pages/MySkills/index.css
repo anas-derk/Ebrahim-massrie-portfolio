@@ -2,10 +2,8 @@
   color: #FFF;
 }
 
-.my-skills .skills-info {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 50px;
+.my-skills .skills-info > .skill-box:not(:last-of-type) {
+  margin-bottom: 30px;
 }
 
 .my-skills .skills-info .skill-box {

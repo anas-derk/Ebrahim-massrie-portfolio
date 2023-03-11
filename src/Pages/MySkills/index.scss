@@ -1,9 +1,9 @@
 .my-skills{
     color: #FFF;
     .skills-info {
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: 50px;
+        > .skill-box:not(:last-of-type) {
+            margin-bottom: 30px;
+        }
         .skill-box{
             border-radius: 5px;
             .skill-icon{

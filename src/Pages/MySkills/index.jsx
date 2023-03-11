@@ -45,25 +45,25 @@ const MySkills = ({ pageTitle }) => {
                                 {/* Start Grid System */}
                                 <div className="row align-items-center skill-box pt-3 pb-3 bg-secondary">
                                     {/* Start Column */}
-                                    <div className="col-md-1">
+                                    <div className="col-md-1 text-center">
                                         <FaFacebookF className="skill-icon" />
                                     </div>
                                     {/* End Column */}
                                     {/* Start Column */}
-                                    <div className="col-md-10 mb-4">
+                                    <div className="col-md-10">
                                         <h5 className="">{skill_data.skill_name}</h5>
                                         <h6 className="mb-0">{skill_data.experince}</h6>
                                     </div>
                                     {/* End Column */}
                                     {/* Start Column */}
-                                    <div className="col-md-1">
+                                    <div className="col-md-1 text-center">
                                         <MdArrowDropUp className="skill-details-open-arrow"
                                             onClick={() => open_skill_details_box_func(index)}
                                         />
                                     </div>
                                     {/* End Column */}
                                     {/* Start Skill Details Box */}
-                                    {list_of_visible_skill_details_indexes.includes(index) && <div className="skill-details-box col-md-12">
+                                    {list_of_visible_skill_details_indexes.includes(index) && <div className="skill-details-box mt-4 col-md-12">
                                         <table className="w-100 skill-details-table">
                                             <thead>
                                                 <tr>
