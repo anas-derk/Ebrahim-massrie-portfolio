@@ -2,24 +2,30 @@
   color: #FFF;
 }
 
-.my-skills .skill-box {
+.my-skills .skills-info {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+}
+
+.my-skills .skills-info .skill-box {
   border-radius: 5px;
 }
 
-.my-skills .skill-box .skill-icon {
+.my-skills .skills-info .skill-box .skill-icon {
   font-size: 25px;
 }
 
-.my-skills .skill-box .skill-details-open-arrow {
+.my-skills .skills-info .skill-box .skill-details-open-arrow {
   font-size: 28px;
   cursor: pointer;
 }
 
-.my-skills .skill-box .skill-details-table {
+.my-skills .skills-info .skill-box .skill-details-table {
   border: 2px dashed #FFF;
 }
 
-.my-skills .skill-box .skill-details-table .tech-number span {
+.my-skills .skills-info .skill-box .skill-details-table .tech-number span {
   background-color: var(--main-background-color);
   display: inline-block;
   width: 40px;
@@ -30,7 +36,7 @@
   border-top-right-radius: 10px;
 }
 
-.my-skills .skill-box .skill-details-table th, .my-skills .skill-box .skill-details-table td {
+.my-skills .skills-info .skill-box .skill-details-table th, .my-skills .skills-info .skill-box .skill-details-table td {
   border: 2px dashed #FFF;
   padding: 10px;
   text-align: center;

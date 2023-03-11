@@ -23,6 +23,9 @@ const MySkills = ({ pageTitle }) => {
         if (!list_of_visible_skill_details_indexes_temp.includes(index)) {
             list_of_visible_skill_details_indexes_temp.push(index);
             set_list_of_visible_skill_details_indexes(list_of_visible_skill_details_indexes_temp);
+        } else {
+            list_of_visible_skill_details_indexes_temp = list_of_visible_skill_details_indexes.filter((el) => el !== index);
+            set_list_of_visible_skill_details_indexes(list_of_visible_skill_details_indexes_temp);
         }
     }
 
@@ -35,10 +38,10 @@ const MySkills = ({ pageTitle }) => {
                 <div className="container">
                     <h1 className="page-name text-center mb-5">My Skills</h1>
                     {/* Start Grid System */}
-                    <div className="row">
+                    <div className="skills-info">
                         {my_data.skills.map((skill_data, index) =>
                             /* Start Column */
-                            <div className="col-md-6">
+                            <div className="skill-box" key={index}>
                                 {/* Start Grid System */}
                                 <div className="row align-items-center skill-box pt-3 pb-3 bg-secondary">
                                     {/* Start Column */}
@@ -60,7 +63,7 @@ const MySkills = ({ pageTitle }) => {
                                     </div>
                                     {/* End Column */}
                                     {/* Start Skill Details Box */}
-                                    <div className="skill-details-box col-md-12">
+                                    {list_of_visible_skill_details_indexes.includes(index) && <div className="skill-details-box col-md-12">
                                         <table className="w-100 skill-details-table">
                                             <thead>
                                                 <tr>
@@ -71,17 +74,17 @@ const MySkills = ({ pageTitle }) => {
                                             </thead>
                                             <tbody>
                                                 {my_data.skills[index].skill_tech_details.map((tech_info, tech_index) => (
-                                                    <tr>
+                                                    <tr key={tech_index}>
                                                         <td className="tech-number">
                                                             <span className="fw-bold">{tech_index + 1}</span>
                                                         </td>
-                                                        <td>{ tech_info.tech_name }</td>
-                                                        <td>{ tech_info.level }</td>
+                                                        <td>{tech_info.tech_name}</td>
+                                                        <td>{tech_info.level}</td>
                                                     </tr>
                                                 ))}
                                             </tbody>
                                         </table>
-                                    </div>
+                                    </div>}
                                     {/* End Skill Details Box */}
                                 </div>
                                 {/* End Grid System */}
