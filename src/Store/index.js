@@ -11,6 +11,7 @@ const initState = {
     mainColorTwo: "#FFF",
     mainBackgroundColor: "#191624",
     mainJobPositionColor: "rgba(255,255,255,.7)",
+    mainBackgroundInputColor: "#231f35",
     linksIconsComponents: [
         <FaFacebookF />,
         <FaLinkedinIn />,
@@ -42,6 +43,7 @@ const rootReducer = (state = initState, action) => {
             mainColorTwo: action.colors.mainColorTwo,
             mainBackgroundColor: action.colors.mainBackgroundColor,
             mainJobPositionColor: action.colors.mainJobPositionColor,
+            mainBackgroundInputColor: action.colors.mainBackgroundInputColor,
         };
     }
     return state;

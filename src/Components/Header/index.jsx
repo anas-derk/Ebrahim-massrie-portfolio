@@ -19,7 +19,8 @@ const Header = () => {
                     mainColorOne: store.getState().mainColorOne == "rgb(110, 87, 224)" ? "#000" : "rgb(110, 87, 224)",
                     mainColorTwo: store.getState().mainColorTwo == "#FFF" ? "#000" : "#FFF",
                     mainBackgroundColor: store.getState().mainBackgroundColor == "#191624" ? "#FFF" : "#191624",
-                    mainJobPositionColor: store.getState().mainJobPositionColor == "rgba(255,255,255,.7)" ? "rgba(0,0,0,.7)" : "rgba(255,255,255,.7)", 
+                    mainJobPositionColor: store.getState().mainJobPositionColor == "rgba(255,255,255,.7)" ? "rgba(0,0,0,.7)" : "rgba(255,255,255,.7)",
+                    mainBackgroundInputColor: store.getState().mainBackgroundInputColor == "#231f35" ? "#d5d0ef" : "#231f35",
                 },
             }
         );
@@ -28,6 +29,7 @@ const Header = () => {
         rootElement.style.setProperty("--main-color-two", store.getState().mainColorTwo);
         rootElement.style.setProperty("--main-background-color", store.getState().mainBackgroundColor);
         rootElement.style.setProperty("--main-job-position-color", store.getState().mainJobPositionColor);
+        rootElement.style.setProperty("--main-background-input-color", store.getState().mainBackgroundInputColor);
     }
 
     return (

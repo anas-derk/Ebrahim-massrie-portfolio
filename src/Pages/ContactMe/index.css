@@ -15,9 +15,9 @@
 }
 
 .contact-me .contact-me-form textarea, .contact-me .contact-me-form input {
-  background-color: #231f35;
+  background-color: var(--main-background-input-color);
   border: none;
-  color: #FFF;
+  color: var(--main-color-two);
 }
 
 @media (max-width: 991px) {
