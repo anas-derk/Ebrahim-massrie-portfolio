@@ -1,6 +1,8 @@
 import { Fragment, useEffect } from "react";
 import Header from "../../Components/Header";
 import "./index.min.css";
+import MyProject from "../../Components/MyProject/index";
+import my_data from "../../Assets/myData/my_data.json";
 
 const MyProjects = ({ pageTitle }) => {
 
@@ -16,17 +18,24 @@ const MyProjects = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start My Projects Page */}
-            <div className="my-projects pt-5">
+            <div className="my-projects pt-5 pb-5">
                 {/* Start Container */}
                 <div className="container">
-                    <h1 className="page-name text-center">My Projects</h1>
+                    <h1 className="page-name text-center mb-5">My Projects</h1>
                     {/* Start Grid System */}
                     <div className="row">
-                        {/* Start Column */}
-                        <div className="col-md-6">
-                            hh
-                        </div>
-                        {/* End Column */}
+                        {my_data.projects.map((project, index) => (
+                            /* Start Column */
+                            <div className="col-md-6" key={index}>
+                                <MyProject
+                                    title = { project.title }
+                                    description = { project.description }
+                                    technologies = { project.technologies }
+                                    sourceCodeLink = { project.sourceCodeLink }
+                                />
+                            </div>
+                            /* End Column */
+                        ))}
                     </div>
                     {/* End Grid System */}
                 </div>
