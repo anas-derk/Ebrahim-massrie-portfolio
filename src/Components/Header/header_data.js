@@ -16,8 +16,8 @@ let headerData = [
         pageTitle: "My Skills",
     },
     {
-        route: "/my-services",
-        pageTitle: "My Services",
+        route: "/qualification",
+        pageTitle: "Qualification",
     },
     {
         route: "/my-projects",
