@@ -7,7 +7,7 @@
   border-bottom: 2px solid var(--main-color-two);
 }
 
-.qualification .qualification-details-box .details-box .details-part {
+.qualification .qualification-details-box .details-box {
   position: relative;
   border-radius: 10px;
   box-shadow: 1px 1px 10px var(--main-color-two);
@@ -15,7 +15,7 @@
   transition: .5s;
 }
 
-.qualification .qualification-details-box .details-box .details-part:hover {
+.qualification .qualification-details-box .details-box:hover {
   border-radius: 0;
   border-top-right-radius: 35px;
   border-left: 5px solid #000;
@@ -23,15 +23,44 @@
   color: #000;
 }
 
+.qualification .qualification-details-box .details-box::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: calc(100% - 20px);
+  left: 23px;
+  top: 10px;
+  background-color: #000;
+}
+
+.qualification .qualification-details-box .details-box .details-part {
+  position: relative;
+}
+
 .qualification .qualification-details-box .details-box .details-part .description {
   margin: 0;
   text-align: justify;
 }
 
-.qualification .qualification-details-box .details-box .details-part::after {
-  content: "";
+.qualification .qualification-details-box .details-box .details-part::before {
   position: absolute;
-  width: 2px;
-  height: 100%;
+  width: 30px;
+  height: 30px;
+  left: 10px;
+  top: 50px;
   background-color: #000;
+  color: #FFF;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.qualification .qualification-details-box .education-details-box .details-part::before {
+  counter-increment: education-counter;
+  content: counter(education-counter);
+}
+
+.qualification .qualification-details-box .experience-details-box .details-part::before {
+  counter-increment: experience-counter;
+  content: counter(experience-counter);
 }

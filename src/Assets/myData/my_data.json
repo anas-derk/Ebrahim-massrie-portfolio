@@ -48,9 +48,19 @@
                 "duration": "2013 - 2015",
                 "level": "Master In Computer Science",
                 "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui."
+            },
+            {
+                "duration": "2013 - 2015",
+                "level": "Master In Computer Science",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui."
             }
         ],
         "experience": [
+            {
+                "duration": "2013 - 2015",
+                "level": "Master In Computer Science",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui."
+            },
             {
                 "duration": "2013 - 2015",
                 "level": "Master In Computer Science",

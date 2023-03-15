@@ -8,30 +8,57 @@
             border-bottom: 2px solid var(--main-color-two);
         }
         .details-box{
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px var(--main-color-two);
+            color: #FFF;
+            transition: .5s;
+            &:hover{
+                border-radius: 0;
+                border-top-right-radius: 35px;
+                border-left: 5px solid #000;
+                background-color: rgb(187, 187, 48) !important;
+                color: #000;
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                width: 3px;
+                height: calc(100% - 20px);
+                left: 23px;
+                top: 10px;
+                background-color: #000;
+            }
             .details-part{
                 position: relative;
-                border-radius: 10px;
-                box-shadow: 1px 1px 10px var(--main-color-two);
-                color: #FFF;
-                transition: .5s;
-                &:hover{
-                    border-radius: 0;
-                    border-top-right-radius: 35px;
-                    border-left: 5px solid #000;
-                    background-color: rgb(187, 187, 48) !important;
-                    color: #000;
-                }
                 .description {
                     margin: 0;
                     text-align: justify;
                 }
-                &::after{
-                    content: "";
+                &::before{
                     position: absolute;
-                    width: 2px;
-                    height: 100%;
+                    width: 30px;
+                    height: 30px;
+                    left: 10px;
+                    top: 50px;
                     background-color: #000;
+                    color: #FFF;
+                    text-align: center;
+                    line-height: 30px;
+                    font-size: 20px;
                 }
+            }
+        }
+        .education-details-box {
+            .details-part::before{
+                counter-increment: education-counter;
+                content: counter(education-counter);
+            }
+        }
+        .experience-details-box {
+            .details-part::before{
+                counter-increment: experience-counter;
+                content: counter(experience-counter);
             }
         }
     }
