@@ -60,6 +60,12 @@
   content: counter(education-counter);
 }
 
+@media (max-width: 767px) {
+  .qualification .qualification-details-box .education-details-box {
+    margin-bottom: 40px;
+  }
+}
+
 .qualification .qualification-details-box .experience-details-box .details-part::before {
   counter-increment: experience-counter;
   content: counter(experience-counter);

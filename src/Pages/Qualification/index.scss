@@ -54,6 +54,9 @@
                 counter-increment: education-counter;
                 content: counter(education-counter);
             }
+            @media (max-width: 767px) {
+                margin-bottom: 40px;
+            }
         }
         .experience-details-box {
             .details-part::before{
