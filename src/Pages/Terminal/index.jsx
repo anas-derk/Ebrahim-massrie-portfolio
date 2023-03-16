@@ -24,7 +24,7 @@ const Terminal = ({ pageTitle }) => {
     const [previousCommandsList, setPreviousCommandsList] = useState([]);
 
     const [commandIndex, setCommandIndex] = useState(0);
-    
+
     let useStatementsAsTerminalCommandResults = TerminalJsonData.useStatementsAsTerminalCommandResults.map((useStatement) => `${useStatement.id}. ${useStatement.statement}`);
 
     const addCommandToPreviousCommandList = () => {
@@ -171,7 +171,22 @@ const Terminal = ({ pageTitle }) => {
                             document.location.reload();
                         }, 1500);
                     }, 2500);
-                } else {
+                }
+                else if (
+                    commandPartsArray.includes("emt")
+                    && commandPartsArray.includes("get")
+                    && commandPartsArray.includes("--page")
+                    && commandPartsArrayLength === 4
+                ) {
+                    setResults(["Please Wait While Opening Introduction Page ..."]);
+                    addCommandToPreviousCommandList();
+                    setTimeout(() => {
+                        window.open(`${commandPartsArray[3]}`, "_blank");
+                        setResults([""]);
+                    }, 2000);
+                    break;
+                }
+                else {
                     setResults([
                         "Error, The Command Is Not Found !!",
                         "Please Write Any Command Valid ."
