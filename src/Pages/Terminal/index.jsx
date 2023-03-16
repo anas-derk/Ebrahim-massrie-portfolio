@@ -178,10 +178,10 @@ const Terminal = ({ pageTitle }) => {
                     && commandPartsArray.includes("--page")
                     && commandPartsArrayLength === 4
                 ) {
-                    setResults(["Please Wait While Opening Introduction Page ..."]);
+                    setResults(["Please Wait While Opening The Require Page ..."]);
                     addCommandToPreviousCommandList();
                     setTimeout(() => {
-                        window.open(`${commandPartsArray[3]}`, "_blank");
+                        window.open(`/#/${commandPartsArray[3]}`, "_blank");
                         setResults([""]);
                     }, 2000);
                     break;
