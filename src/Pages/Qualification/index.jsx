@@ -17,7 +17,7 @@ const Qualification = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start Qualification Page */}
-            <div className="qualification pt-5 pb-5">
+            <div className="qualification pt-5 pb-5 d-flex align-items-center">
                 {/* Start Container */}
                 <div className="container">
                     <h1 className="page-name text-center mb-5">Qualification</h1>
