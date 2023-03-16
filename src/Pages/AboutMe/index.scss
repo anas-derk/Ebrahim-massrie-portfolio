@@ -3,13 +3,22 @@
     .page-name {
         animation: pageNameAnimation 1s ease-in-out 0s;
     }
-
     .my-image {
         width: 100%;
         height: 450px;
         border: 3px solid var(--main-color-two);
+        @media (min-width: 768px) and (max-width: 991px) {
+            width: 60%;
+        }
     }
-
+    .summary-description{
+        text-align: justify;
+        line-height: 2;
+        @media (max-width: 991px) {
+            text-align: center;
+            line-height: 2.5;
+        }
+    }
     .contact-links {
         li {
             font-size: 33px;

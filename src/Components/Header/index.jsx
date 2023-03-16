@@ -44,7 +44,7 @@ const Header = () => {
                         <ul className="navbar-nav">
                             {headerData.map((data, index) =>
                                 <li className="nav-item" key={index}>
-                                    {document.location.pathname !== data.route && <Link className="nav-link color-black" to={data.route}>{data.pageTitle}</Link>}
+                                    {document.location.hash.slice(1) !== data.route && <Link className="nav-link color-black" to={data.route}>{data.pageTitle}</Link>}
                                 </li>
                             )}
                             <li className="change-mode-icon" onClick={handleChangeMode}>
