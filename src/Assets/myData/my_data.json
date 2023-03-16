@@ -10,31 +10,93 @@
     "skills": [
         {
             "id": 1,
-            "skill_name": "Front End Developer",
-            "experince": "More Than 4 Years",
+            "skill_name": "Machine Learning",
+            "experience": "1 Year Of Experience",
             "skill_tech_details": [
                 {
-                    "tech_name": "Html",
+                    "tech_name": "Advanced Python",
+                    "level": "Excellent"
+                },
+                {
+                    "tech_name": "Supervised Learning",
+                    "level": "Excellent"
+                },
+                {
+                    "tech_name": "Unsupervised Learning",
+                    "level": "Excellent"
+                },
+                {
+                    "tech_name": "Reinforcement Learning",
                     "level": "Good"
                 },
                 {
-                    "tech_name": "CSS",
+                    "tech_name": "Build Professional Models",
                     "level": "Very Good"
                 }
             ]
         },
         {
             "id": 2,
-            "skill_name": "Back End Developer",
-            "experince": "More Than 2 Years",
+            "skill_name": "Data Scientist",
+            "experience": "1 Year Of Experience",
             "skill_tech_details": [
                 {
-                    "tech_name": "Node.js",
+                    "tech_name": "Data Mining",
                     "level": "Good"
                 },
                 {
-                    "tech_name": "Express Js",
-                    "level": "Normal"
+                    "tech_name": "Big Data",
+                    "level": "Good"
+                },
+                {
+                    "tech_name": "Extract Knowledge From Data",
+                    "level": "Very Good"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "skill_name": "Deep Learning",
+            "experience": "1 Year Of Experience",
+            "skill_tech_details": [
+                {
+                    "tech_name": "Keras",
+                    "level": "Good"
+                },
+                {
+                    "tech_name": "Tendorflow",
+                    "level": "Good"
+                },
+                {
+                    "tech_name": "Pytorch",
+                    "level": "Good"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "skill_name": "Data Analysis",
+            "experience": "1 Year Of Experience",
+            "skill_tech_details": [
+                {
+                    "tech_name": "Advanced Excel",
+                    "level": "Excellent"
+                },
+                {
+                    "tech_name": "MySQL",
+                    "level": "Very Good"
+                },
+                {
+                    "tech_name": "Pandas",
+                    "level": "Very Good"
+                },
+                {
+                    "tech_name": "Matplotlib",
+                    "level": "Very Good"
+                },
+                {
+                    "tech_name": "Numpy",
+                    "level": "Very Good"
                 }
             ]
         }

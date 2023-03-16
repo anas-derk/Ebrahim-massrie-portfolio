@@ -33,7 +33,7 @@ const MySkills = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start My Skills Page */}
-            <div className="my-skills pt-5">
+            <div className="my-skills pt-5 pb-5 d-flex align-items-center">
                 {/* Start Container */}
                 <div className="container">
                     <h1 className="page-name text-center mb-5">My Skills</h1>
@@ -52,7 +52,7 @@ const MySkills = ({ pageTitle }) => {
                                     {/* Start Column */}
                                     <div className="col-md-10">
                                         <h5 className="">{skill_data.skill_name}</h5>
-                                        <h6 className="mb-0">{skill_data.experince}</h6>
+                                        <h6 className="mb-0">{skill_data.experience}</h6>
                                     </div>
                                     {/* End Column */}
                                     {/* Start Column */}
