@@ -41,22 +41,47 @@
     ],
     "projects": [
         {
-            "title": "Html",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui.",
+            "id": 1,
+            "title": "Classification Odors",
+            "description": "In this project we have created a program in Python that classifies odors based on the intensity of the nerve impulse when a person smells each odor. I collected data from specific sensors that measure the intensity of the nervous impulse when smelling a particular smell, I did the research process, collected the values, and built my own data set for four scents, with it worth mentioning that I can collect more data and develop the algorithms that I used in this project to be able to classify 250 different smells.",
             "technologies": [
-                "aa",
-                "bb"
+                "python: scikit learn and pandas modules.",
+                "machine learning algorithms: decision Tree, K nearest neighbours.",
+                "data preprocessing."
             ],
-            "sourceCodeLink": "http://google.com"
+            "sourceCodeLink": "https://github.com/EbrahimMassrie963/classification-odors-depending-on-The-intensity-of-the-nervous-impulse"
         },
         {
-            "title": "Html",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui.",
+            "id": 2,
+            "title": "Predicting The Consumption Of Electrical Energy",
+            "description": "This project helps specialists in the field of electric power production to predict the electrical load of the generation station in the near future, depending on population growth and current electrical consumption, and this helps them to develop the necessary plans in the future.",
             "technologies": [
-                "cc",
-                "dd"
+                "python: scikit learn, pandas, holidays, matplotlib, tensorflow, keras and xgboost modules.",
+                "machine learning algorithms: linear regression, random forest, xgboost algotithmns.",
+                "neural networks",
+                "data preprocessing techniques ."
             ],
-            "sourceCodeLink": "http://google.com"
+            "sourceCodeLink": "https://github.com/EbrahimMassrie963/Predicting-the-consumption-of-electrical-energy"
+        },
+        {
+            "id": 3,
+            "title": "Classification Vs Regression",
+            "description": "This is not a project in itself, but this is a complete training course on data analysis in Python you will learn build regression model on house_price orediction dataset and you will learn classification techniques the most important, you will learn all data preprocessing techniques that contain cleaning and remove duplicates rows and correlated features and more .....",
+            "technologies": [
+                "python: pandas, numpy, seaborn, matplotlib modules.",
+                "machine learning algorithms: linear regression, random forest, K nearest neighbours, decision tree algotithmns."
+            ],
+            "sourceCodeLink": "https://github.com/EbrahimMassrie963/classification-vs-regression"
+        },
+        {
+            "id": 4,
+            "title": "Desktop Login With Face & Mouse Cursor Control",
+            "description": "In this project, we took pictures of the face of a specific person in various positions, and trained a machine learning model on this data, so that this person becomes the only one who is able to open his personal computer through the image of his face. We also developed the program to become an assistant for paralyzed people so that they can control various computer commands by moving the head, eyes and mouth.",
+            "technologies": [
+                "python: cv2, os, sys, modules.",
+                "machine learning algorithms: face recognition, haarcascadeclassifier and another algorithmns."
+            ],
+            "sourceCodeLink": "https://github.com/EbrahimMassrie963/Desktop-login-with-face-mouse-cursor-control-with-head-and-eye-movements"
         }
     ],
     "qualification": {

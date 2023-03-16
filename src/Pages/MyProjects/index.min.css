@@ -1,1 +1,1 @@
-.my-projects{color:var(--main-color-two)}
+.my-projects{color:var(--main-color-two)}.my-projects .project-box:not(:last-of-type){margin-bottom:50px}

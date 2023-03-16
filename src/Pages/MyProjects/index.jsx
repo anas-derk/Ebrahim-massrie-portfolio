@@ -25,16 +25,13 @@ const MyProjects = ({ pageTitle }) => {
                     {/* Start Grid System */}
                     <div className="row">
                         {my_data.projects.map((project, index) => (
-                            /* Start Column */
-                            <div className="col-md-6" key={index}>
-                                <MyProject
-                                    title = { project.title }
-                                    description = { project.description }
-                                    technologies = { project.technologies }
-                                    sourceCodeLink = { project.sourceCodeLink }
-                                />
-                            </div>
-                            /* End Column */
+                            <MyProject
+                                key={index}
+                                title={project.title}
+                                description={project.description}
+                                technologies={project.technologies}
+                                sourceCodeLink={project.sourceCodeLink}
+                            />
                         ))}
                     </div>
                     {/* End Grid System */}

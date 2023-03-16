@@ -1,3 +1,6 @@
 .my-projects{
     color: var(--main-color-two);
+    .project-box:not(:last-of-type){
+        margin-bottom: 50px;
+    }
 }
