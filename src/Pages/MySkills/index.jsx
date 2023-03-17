@@ -2,13 +2,20 @@ import Header from "../../Components/Header/index";
 import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import "./index.min.css";
-import { RiCodeBoxLine } from 'react-icons/ri';
 import { BsArrowDownSquare } from "react-icons/bs";
 import my_data from "../../Assets/myData/my_data.json";
 
 const MySkills = ({ pageTitle }) => {
 
     const [list_of_visible_skill_details_indexes, set_list_of_visible_skill_details_indexes] = useState([]);
+
+    const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
+
+    window.addEventListener("resize", (e) => {
+        
+        setWindowInnerWidth(window.innerWidth);
+
+    });
 
     useEffect(() => {
 
@@ -45,12 +52,12 @@ const MySkills = ({ pageTitle }) => {
                                 {/* Start Grid System */}
                                 <div className="row align-items-center skill-box pt-3 pb-3 bg-secondary">
                                     {/* Start Column */}
-                                    <div className="col-md-1 text-center">
+                                    <div className={`col-md-1 text-center ${windowInnerWidth < 767 ? "mb-3" : ""}`}>
                                         <span className="skill-num">{index + 1}</span>
                                     </div>
                                     {/* End Column */}
                                     {/* Start Column */}
-                                    <div className="col-md-10">
+                                    <div className={`col-md-10 ${windowInnerWidth < 767 ? "mb-3 text-center" : ""}`}>
                                         <h5 className="">{skill_data.skill_name}</h5>
                                         <h6 className="mb-0">{skill_data.experience}</h6>
                                     </div>
