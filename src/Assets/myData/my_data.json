@@ -155,26 +155,31 @@
     "qualification": {
         "education": [
             {
-                "duration": "2013 - 2015",
-                "level": "Master In Computer Science",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui."
+                "duration": "2016 - 2022",
+                "level": "Information Technology",
+                "description": "tishreen - university"
             },
             {
-                "duration": "2013 - 2015",
-                "level": "Master In Computer Science",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui."
+                "duration": "2020 - 2022",
+                "level": "Artificial Intelligence Specialization",
+                "description": "tishreen - university"
+            },
+            {
+                "duration": "2022 - now",
+                "level": "Master in Artificial Intelligence",
+                "description": "Damascus - University"
             }
         ],
         "experience": [
             {
-                "duration": "2013 - 2015",
-                "level": "Master In Computer Science",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui."
+                "duration": "2020 - 2021",
+                "level": "Junior Machine Learning Engineer",
+                "description": "Tec Time"
             },
             {
-                "duration": "2013 - 2015",
-                "level": "Master In Computer Science",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui."
+                "duration": "2021 - now",
+                "level": "Data Science",
+                "description": "Freelancer"
             }
         ]
     }

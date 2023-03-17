@@ -5,11 +5,54 @@ import my_data from "../../Assets/myData/my_data.json";
 
 const Qualification = ({ pageTitle }) => {
 
+    const handleDetailsBoxHeight = () => {
+
+        let educationDetailsBox = document.querySelector(".qualification .education-details-box");
+
+        let experienceDetailsBox = document.querySelector(".qualification .experience-details-box");
+
+        if (educationDetailsBox.offsetHeight > experienceDetailsBox.offsetHeight) {
+
+            experienceDetailsBox.style.height = `${educationDetailsBox.offsetHeight}px`;
+
+        } else {
+
+            educationDetailsBox.style.height = `${experienceDetailsBox.offsetHeight}px`;
+
+        }
+
+    }
+
+    window.addEventListener("resize", (e) => {
+
+        let educationDetailsBox = document.querySelector(".qualification .education-details-box");
+
+        let experienceDetailsBox = document.querySelector(".qualification .experience-details-box");
+
+        if (window.innerWidth < 767) {
+
+            educationDetailsBox.style.height = "auto";
+
+            experienceDetailsBox.style.height = "auto";
+
+        } else {
+
+            handleDetailsBoxHeight();
+
+        }
+    });
+
     useEffect(() => {
 
         document.title = pageTitle;
 
         document.querySelector(".qualification").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
+
+        if (window.innerWidth > 767) {
+
+            handleDetailsBoxHeight();
+
+        }
 
     }, []);
 
@@ -51,10 +94,10 @@ const Qualification = ({ pageTitle }) => {
                                 {my_data.qualification.experience.map((el, index) => (
                                     /* Start Details Part */
                                     <div className="details-part p-4 ps-5" key={index}>
-                                        <h6 className="duration">2013 - 2015</h6>
-                                        <h5 className="level">Master In Computer Science</h5>
+                                        <h6 className="duration">{el.duration}</h6>
+                                        <h5 className="level">{el.level}</h5>
                                         <p className="description">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab facilis possimus ipsa laudantium assumenda non delectus fugiat corrupti iure magnam. Facilis tenetur voluptate aspernatur expedita a animi delectus, ab qui.
+                                            {el.description}
                                         </p>
                                     </div>
                                     /* End Details Part */
