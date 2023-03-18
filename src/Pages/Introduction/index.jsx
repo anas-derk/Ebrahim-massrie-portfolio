@@ -26,8 +26,8 @@ const Introduction = ({ pageTitle }) => {
         document.title = pageTitle;
         document.querySelector(".introduction").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
         smothlyTextWriting("Hi, I'am Ebrahim Massrie |", setMyName);
-        smothlyTextWriting("Junior Artificial Intelligence Engineer", setMyJobPosition);
-        smothlyTextWriting("Junior level experince in Artificial Intelligence Engineering, and development knowledge, Producing The Best Apps With Good quality", setMyJobCaption, 25);
+        smothlyTextWriting(my_data.introduction.jobPosition, setMyJobPosition);
+        smothlyTextWriting(my_data.introduction.jobCaption, setMyJobCaption, 25);
     }, []);
 
     return (
