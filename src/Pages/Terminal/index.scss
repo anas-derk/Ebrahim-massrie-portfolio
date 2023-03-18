@@ -1,6 +1,9 @@
 .terminal {
     min-height: 100vh;
     color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     h2{
         border-radius: 10px;
         animation: zoom-in 1s linear;

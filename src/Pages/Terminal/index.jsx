@@ -29,8 +29,6 @@ const Terminal = ({ pageTitle }) => {
 
     const useStatementsAsTerminalCommandResults = TerminalJsonData.useStatementsAsTerminalCommandResults.map((useStatement) => `${useStatement.id}. ${useStatement.statement}`);
 
-
-
     const addCommandToPreviousCommandList = () => {
         if (!previousCommandsList.includes(command)) {
             let previousCommandsListTemp = previousCommandsList.map(previousCommand => previousCommand);

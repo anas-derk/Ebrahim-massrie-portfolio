@@ -1,6 +1,9 @@
 .terminal {
   min-height: 100vh;
   color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .terminal h2 {
