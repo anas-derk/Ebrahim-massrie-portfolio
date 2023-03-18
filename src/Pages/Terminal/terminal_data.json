@@ -77,6 +77,18 @@
         {
             "id": 8,
             "command": "emt get --page [page-name] (Without Square Bracktes) [Pages Name: introduction, my-projects, about-me, my-skills, qualification, contact-me]"
+        },
+        {
+            "id": 9,
+            "command": "emt get --contact-me-links"
         }
+    ],
+    "contactMeLinks": [
+        "- Facebook: https://www.facebook.com/profile.php?id=100008270864447&mibextid=ZbWKwL",
+        "- Linkedin: https://www.linkedin.com/in/ebrahim-massrie-14b6811b0",
+        "- Github: https://github.com/EbrahimMassrie963",
+        "- Instagram: https://www.instagram.com/ebrahimmassrie/",
+        "- Email: ebrahimmassrie963@gmail.com",
+        "- Tel: 00963931631370"
     ]
 }

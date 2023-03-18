@@ -25,7 +25,11 @@ const Terminal = ({ pageTitle }) => {
 
     const [commandIndex, setCommandIndex] = useState(0);
 
-    let useStatementsAsTerminalCommandResults = TerminalJsonData.useStatementsAsTerminalCommandResults.map((useStatement) => `${useStatement.id}. ${useStatement.statement}`);
+    const pagesList = ["introduction", "my-projects", "about-me", "my-skills", "qualification", "contact-me"];
+
+    const useStatementsAsTerminalCommandResults = TerminalJsonData.useStatementsAsTerminalCommandResults.map((useStatement) => `${useStatement.id}. ${useStatement.statement}`);
+
+
 
     const addCommandToPreviousCommandList = () => {
         if (!previousCommandsList.includes(command)) {
@@ -140,6 +144,12 @@ const Terminal = ({ pageTitle }) => {
                 addCommandToPreviousCommandList();
                 break;
             }
+            case "emt get --contact-me-links": {
+                setResults(TerminalJsonData.contactMeLinks);
+                setCommandIndex(0);
+                addCommandToPreviousCommandList();
+                break;
+            }
             default: {
                 // Convert Command To Array By Empty Space Separator
                 let commandPartsArray = commandAfterHandling.split(" ");
@@ -178,11 +188,15 @@ const Terminal = ({ pageTitle }) => {
                     && commandPartsArray.includes("--page")
                     && commandPartsArrayLength === 4
                 ) {
-                    setResults(["Please Wait While Opening The Require Page ..."]);
+                    setResults(["Please Wait While Opening The Required Page ..."]);
                     addCommandToPreviousCommandList();
                     setTimeout(() => {
-                        window.open(`/#/${commandPartsArray[3]}`, "_blank");
-                        setResults([""]);
+                        if(pagesList.includes(commandPartsArray[3])) {
+                            window.open(`/#/${commandPartsArray[3]}`, "_blank");
+                            setResults([""]);
+                        } else {
+                            setResults(["Sorry, The Required Page Is Not Found !!, Please Write Any Page Name Valid ..."]);
+                        }
                     }, 2000);
                     break;
                 }
@@ -191,6 +205,7 @@ const Terminal = ({ pageTitle }) => {
                         "Error, The Command Is Not Found !!",
                         "Please Write Any Command Valid ."
                     ]);
+                    addCommandToPreviousCommandList();
                     setCommandIndex(0);
                 }
             }
