@@ -41,7 +41,7 @@ const Home = ({ pageTitle }) => {
 
                     smothlyTextWriting("Welcome To You In My Portfolio", setWelcomeMessage);
 
-                    smothlyTextWriting("I'am Ebrahim Massrie, Artificial Intelligence Engineer ..", setHowAmI);
+                    smothlyTextWriting("I am Ebrahim Massrie, Artificial Intelligence Engineer ..", setHowAmI);
 
                     smothlyTextWriting("If you are a terminal fanatic, you can use my teminal by pressing the following button .", setPortfolioUseStatement);
 

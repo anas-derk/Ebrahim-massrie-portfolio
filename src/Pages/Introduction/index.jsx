@@ -25,7 +25,7 @@ const Introduction = ({ pageTitle }) => {
     useEffect(() => {
         document.title = pageTitle;
         document.querySelector(".introduction").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
-        smothlyTextWriting("Hi, I'am Ebrahim Massrie |", setMyName);
+        smothlyTextWriting("Hi, I am Ebrahim Massrie |", setMyName);
         smothlyTextWriting(my_data.introduction.jobPosition, setMyJobPosition);
         smothlyTextWriting(my_data.introduction.jobCaption, setMyJobCaption, 25);
     }, []);
@@ -54,7 +54,7 @@ const Introduction = ({ pageTitle }) => {
                             <h5 className="job-position fw-bold">{myJobPosition}</h5>
                             <p className="job-caption mb-4">{myJobCaption}</p>
                             <Link className="btn p-3 contact-me-btn" to="/contact-me">
-                                Constact me &nbsp;
+                                Contact me &nbsp;
                                 <MdDoubleArrow />
                             </Link>
                         </div>

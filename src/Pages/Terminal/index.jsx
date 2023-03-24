@@ -80,7 +80,7 @@ const Terminal = ({ pageTitle }) => {
             }
             case "emt who-am-i": {
                 setResults([
-                    "Hi, I'am Ebrahim Massrie |",
+                    "Hi, I am Ebrahim Massrie |",
                     "Junior Artificial Intelligence Engineer",
                     "I am interested in the fields of data science,",
                     "machine learning and deep learning,",
@@ -92,7 +92,7 @@ const Terminal = ({ pageTitle }) => {
             }
             case "emt get --previous-commands": {
                 if (previousCommandsList.length === 0) {
-                    setResults(["Sorry, Can't Find Commands In Previous Command List !!!"]);
+                    setResults(["Sorry, We Can't Find Commands In Previous Command List !!!"]);
                 } else {
                     setResults(previousCommandsList);
                 }
@@ -102,19 +102,19 @@ const Terminal = ({ pageTitle }) => {
             }
             case "emt clear --previous-commands-list": {
                 if (previousCommandsList.length === 0) {
-                    setResults(["Sorry, Can't Find Commands In Previous Command List !!!"]);
+                    setResults(["Sorry, We Can't Find Commands In Previous Command List !!!"]);
                 } else {
                     setPreviousCommandsList([]);
-                    setResults(["Please Wait While Clear Previous Commands List .."]);
+                    setResults(["Please Wait While Clearing Previous Commands List .."]);
                     setCommandIndex(0);
                     setTimeout(() => {
-                        setResults(["Ok!!, The Process is Successfuly ."]);
+                        setResults(["Ok!!, The Process is Successfuly done."]);
                     }, 2500);
                 }
                 break;
             }
             case "emt close": {
-                setResults(["Please Wait While Closing Ebrahim Messrie Terminal The Back To Home Page ..."]);
+                setResults(["Please Wait While Closing Ebrahim Messrie Terminal And Back To Home Page ..."]);
                 setCommandIndex(0);
                 setTimeout(() => {
                     navigate("/");
@@ -170,7 +170,7 @@ const Terminal = ({ pageTitle }) => {
                     // Convert The Array To String Without Comma
                     let newUserName = namePartsArray.join(" ");
                     // Start Handle Change User Name Process
-                    setResults(["changing the username of the entered name ..."]);
+                    setResults(["changing the current username With A New One ..."]);
                     setCommandIndex(0);
                     localStorage.setItem("user-name", newUserName);
                     setTimeout(() => {
@@ -193,7 +193,7 @@ const Terminal = ({ pageTitle }) => {
                             window.open(`/#/${commandPartsArray[3]}`, "_blank");
                             setResults([""]);
                         } else {
-                            setResults(["Sorry, The Required Page Is Not Found !!, Please Write Any Page Name Valid ..."]);
+                            setResults(["Sorry, The Required Page Is Not Available !! Please Write Any Page Name Valid ..."]);
                         }
                     }, 2000);
                     break;
@@ -259,7 +259,7 @@ const Terminal = ({ pageTitle }) => {
     return (
         // Start Terminal
         <div className="terminal pt-5 pb-5">
-            <h2 className="mb-4 text-center bg-success p-3">Welcome To You In Eng. Ebrahim Massrie Terminal .</h2>
+            <h2 className="mb-4 text-center bg-success p-3">Welcome To You In Eng. Ebrahim Massrie's Creditable Terminal .</h2>
             {!isOpenTerminal && !isTerminalOpening &&
                 <table className="how-to-use-terminal-table w-100 mb-4">
                     <thead>

@@ -2,16 +2,16 @@
     "useStatments": [
         {
             "id": 1,
-            "statement": "First: If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal"
+            "statement": "First, If You Use Terminal For The First Time, Please Enter Your Name, And Then Click On Open Terminal"
         },
         {
             "id": 2,
-            "statement": "You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter .",
+            "statement": "Second, You Can Run Commands By Writing In Terminal Area The Next Command, And Then Click On Enter .",
             "command": "emt [commandName] --[parameterName] [value]"
         },
         {
             "id": 3,
-            "statement": "For Display All Of Commands, Please Write Command: ",
+            "statement": "For Displaying All Of Commands, Please Write Command: ",
             "command": "emt get --all-commands"
         },
         {
@@ -20,21 +20,21 @@
         },
         {
             "id": 5,
-            "statement": "Last, I Wish For You Fantastic Experince With My Terminal ."
+            "statement": "Last, I Wish You A Fantastic Experince With My Terminal ."
         }
     ],
     "useStatementsAsTerminalCommandResults": [
         {
             "id": 1,
-            "statement": "First: If You Use Terminal For First Time, Please Enter Your Name Then Click On Open Terminal"
+            "statement": "First, If You Use Terminal For The First Time, Please Enter Your Name, And Then Click On Open Terminal"
         },
         {
             "id": 2,
-            "statement": "You Can Running Commands By Write In Terminal Area The Next Command Then Click On Enter: emt [commandName] --[parameterName] [value]"
+            "statement": "Second, You Can Run Commands By Writing In Terminal Area The Next Command, And Then Click On Enter: emt [commandName] --[parameterName] [value]"
         },
         {
             "id": 3,
-            "statement": "For Display All Of Commands, Please Write Command: emt get --all-commands"
+            "statement": "For Displaying All Of Commands, Please Write Command: emt get --all-commands"
         },
         {
             "id": 4,
@@ -42,7 +42,7 @@
         },
         {
             "id": 5,
-            "statement": "Last, I Wish For You Fantastic Experince With My Terminal ."
+            "statement": "Last, I Wish You A Fantastic Experince With My Terminal ."
         }
     ],
     "allCommands": [
@@ -72,11 +72,11 @@
         },
         {
             "id": 7,
-            "command": "emt set --user-name [new_user_name] (Without Square Bracktes)"
+            "command": "emt set --user-name [new_user_name] (Without Square Brackets)"
         },
         {
             "id": 8,
-            "command": "emt get --page [page-name] (Without Square Bracktes) [Pages Name: introduction, my-projects, about-me, my-skills, qualification, contact-me]"
+            "command": "emt get --page [page-name] (Without Square Brackets) [Pages Name: introduction, my-projects, about-me, my-skills, qualification, contact-me]"
         },
         {
             "id": 9,
