@@ -61,8 +61,8 @@ const AboutMe = ({ pageTitle }) => {
                         <div className="col-lg-6">
                             <ul className="contact-links mt-5 text-center d-flex justify-content-center">
                                 {linksIconsComponents.map((icon, index) =>
-                                    <li className={`icon ${index !== linksIconsComponents.length - 1 ? "me-5" : ""}`} key={index}>
-                                        <a href={contact_links_arr[index]} className="icon p-2 ps-3 pe-3" target="_blank">{icon}</a>
+                                    <li className="icon" key={index}>
+                                        <a href={contact_links_arr[index]} className="icon" target="_blank">{icon}</a>
                                     </li>
                                 )}
                             </ul>
