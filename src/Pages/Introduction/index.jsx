@@ -30,7 +30,7 @@ const Introduction = ({ pageTitle }) => {
 
         document.querySelector(".introduction").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
-        setTimeout(() => {
+        let loaderTimeout = setTimeout(() => {
 
             setIsAppearedLoader(false);
 
@@ -39,6 +39,8 @@ const Introduction = ({ pageTitle }) => {
             smothlyTextWriting(my_data.introduction.jobPosition, setMyJobPosition);
 
             smothlyTextWriting(my_data.introduction.jobCaption, setMyJobCaption, 25);
+
+            clearTimeout(loaderTimeout);
 
         }, 2000);
 
@@ -56,7 +58,7 @@ const Introduction = ({ pageTitle }) => {
                     /* Start Grid System From Bootstrap Framework */
                     <div className="row align-items-center" >
                         <div className="col-lg-2">
-                            <ul className="contact-links animate__fadeInLeft">
+                            <ul className="contact-links">
                                 {linksIconsComponents.map((icon, index) =>
                                     <li className="icon" key={index}>
                                         <a href={contact_links_arr[index]} className="icon" target="_blank">{icon}</a>

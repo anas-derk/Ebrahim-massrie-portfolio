@@ -1,6 +1,6 @@
 import { FaDownload } from "react-icons/fa";
 import Header from "../../Components/Header";
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import "./index.min.css";
 import { useSelector } from "react-redux";
 import my_data from "../../Assets/myData/my_data.json";
@@ -12,11 +12,21 @@ const AboutMe = ({ pageTitle }) => {
 
     const contact_links_arr = Object.values(my_data.contact_me_links);
 
+    const [isAppearedLoader, setIsAppearedLoader] = useState(true);
+
     useEffect(() => {
 
         document.title = pageTitle;
 
         document.querySelector(".about-me").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
+
+        let loaderTimeout = setTimeout(() => {
+
+            setIsAppearedLoader(false);
+
+            clearTimeout(loaderTimeout);
+
+        }, 2000);
 
     }, []);
 
@@ -24,9 +34,10 @@ const AboutMe = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start About Me Page */}
-            <div className="about-me pt-5 pb-5 d-flex align-items-center">
+            <div className={`about-me d-flex align-items-center ${isAppearedLoader ? 'loader-state' : 'pb-5 pt-5'}`}>
+                {isAppearedLoader && <div className="loader"> Loading ... </div>}
                 {/* Start Container */}
-                <div className="container">
+                {!isAppearedLoader && <div className="container">
                     <h1 className="page-name text-center mb-5">About Me</h1>
                     {/* Start Grid System */}
                     <div className="row align-items-center">
@@ -37,20 +48,20 @@ const AboutMe = ({ pageTitle }) => {
                         {/* End Column */}
                         {/* Start Column */}
                         <div className="col-lg-6">
-                            <p className="mb-5 summary-description">{ my_data.about_me.summary_description }</p>
+                            <p className="mb-5 summary-description">{my_data.about_me.summary_description}</p>
                             <div className="row text-center">
                                 <div className="col">
-                                    <h4 className="mb-3 experience-years">{ my_data.about_me.experience_years }</h4>
+                                    <h4 className="mb-3 experience-years">{my_data.about_me.experience_years}</h4>
                                     <h6 className="mb-3">Years</h6>
                                     <h6>experience</h6>
                                 </div>
                                 <div className="col">
-                                    <h4 className="mb-3 projects-count">{ my_data.about_me.projects_count }</h4>
+                                    <h4 className="mb-3 projects-count">{my_data.about_me.projects_count}</h4>
                                     <h6 className="mb-3">completed</h6>
                                     <h6>projects</h6>
                                 </div>
                                 <div className="col">
-                                    <h4 className="mb-3 freelancer-projects-count">{ my_data.about_me.freelancer_projects_count }</h4>
+                                    <h4 className="mb-3 freelancer-projects-count">{my_data.about_me.freelancer_projects_count}</h4>
                                     <h6 className="mb-3">freelancer</h6>
                                     <h6>worked</h6>
                                 </div>
@@ -82,7 +93,7 @@ const AboutMe = ({ pageTitle }) => {
                         {/* End Column */}
                     </div>
                     {/* End Grid System */}
-                </div>
+                </div>}
                 {/* End Container */}
             </div>
             {/* End About Me Page */}

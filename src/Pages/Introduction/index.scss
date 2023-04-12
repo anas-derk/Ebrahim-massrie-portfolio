@@ -1,10 +1,4 @@
 .introduction {
-    &.loader-state{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh !important;
-    }
     .row {
         min-height: inherit;
         > div {

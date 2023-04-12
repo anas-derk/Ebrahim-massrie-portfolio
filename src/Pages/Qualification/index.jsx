@@ -1,9 +1,11 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import "./index.min.css";
 import my_data from "../../Assets/myData/my_data.json";
 
 const Qualification = ({ pageTitle }) => {
+
+    const [isAppearedLoader, setIsAppearedLoader] = useState(true);
 
     const handleDetailsBoxHeight = () => {
 
@@ -48,11 +50,19 @@ const Qualification = ({ pageTitle }) => {
 
         document.querySelector(".qualification").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
-        if (window.innerWidth > 767) {
+        let loaderTimeout = setTimeout(() => {
 
-            handleDetailsBoxHeight();
+            setIsAppearedLoader(false);
 
-        }
+            if (window.innerWidth > 767) {
+
+                handleDetailsBoxHeight();
+    
+            }
+
+            clearTimeout(loaderTimeout);
+
+        }, 2000);
 
     }, []);
 
@@ -60,9 +70,10 @@ const Qualification = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start Qualification Page */}
-            <div className="qualification pt-5 pb-5 d-flex align-items-center">
+            <div className={`qualification d-flex align-items-center ${isAppearedLoader ? 'loader-state' : 'pb-5 pt-5'}`}>
+                {isAppearedLoader && <div className="loader"> Loading ... </div>}
                 {/* Start Container */}
-                <div className="container">
+                {!isAppearedLoader && <div className="container">
                     <h1 className="page-name text-center mb-5">Qualification</h1>
                     {/* Start Qualification Details Box */}
                     <div className="qualification-details-box row">
@@ -108,9 +119,9 @@ const Qualification = ({ pageTitle }) => {
                         {/* End Column */}
                     </div>
                     {/* End Qualification Details Box */}
-                </div>
+                </div>}
                 {/* End Container */}
-            </div >
+            </div>
             {/* End Qualification Page */}
         </Fragment >
     );

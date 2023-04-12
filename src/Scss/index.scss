@@ -45,6 +45,13 @@ ul{
     }
 }
 
+.loader-state{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh !important;
+}
+
 @keyframes pulse {
     to {
         transform: scale(0.8);

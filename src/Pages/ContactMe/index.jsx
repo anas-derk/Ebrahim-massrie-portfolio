@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Fragment } from "react";
 import Header from "../../Components/Header";
 import "./index.min.css";
@@ -13,6 +13,8 @@ const ContactMe = ({ pageTitle }) => {
 
     const contact_links_arr = Object.values(my_data.contact_me_links);
 
+    const [isAppearedLoader, setIsAppearedLoader] = useState(true);
+
     const sendMessage = (e) => {
 
         e.preventDefault();
@@ -26,15 +28,24 @@ const ContactMe = ({ pageTitle }) => {
 
         document.querySelector(".contact-me").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
+        let loaderTimeout = setTimeout(() => {
+
+            setIsAppearedLoader(false);
+
+            clearTimeout(loaderTimeout);
+
+        }, 2000);
+
     }, []);
 
     return (
         <Fragment>
             <Header />
             {/* Start Contact Me Page */}
-            <div className="contact-me pt-5 pb-5 d-flex align-items-center">
+            <div className={`contact-me d-flex align-items-center ${isAppearedLoader ? 'loader-state' : 'pb-5 pt-5'}`}>
+                {isAppearedLoader && <div className="loader"> Loading ... </div>}
                 {/* Start Container */}
-                <div className="container">
+                {!isAppearedLoader && <div className="container">
                     <h1 className="page-name text-center mb-5">Contact Me</h1>
                     {/* Start Grid System */}
                     <div className="row align-items-center">
@@ -87,7 +98,7 @@ const ContactMe = ({ pageTitle }) => {
                         {/* End Column */}
                     </div>
                     {/* End Grid System */}
-                </div>
+                </div>}
                 {/* Start Container */}
             </div>
             {/* End Contact Me Page */}

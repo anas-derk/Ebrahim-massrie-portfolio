@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import "./index.min.css";
 import MyProject from "../../Components/MyProject/index";
@@ -6,11 +6,21 @@ import my_data from "../../Assets/myData/my_data.json";
 
 const MyProjects = ({ pageTitle }) => {
 
+    const [isAppearedLoader, setIsAppearedLoader] = useState(true);
+
     useEffect(() => {
 
         document.title = pageTitle;
 
         document.querySelector(".my-projects").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
+
+        let loaderTimeout = setTimeout(() => {
+
+            setIsAppearedLoader(false);
+
+            clearTimeout(loaderTimeout);
+
+        }, 2000);
 
     }, []);
 
@@ -18,9 +28,10 @@ const MyProjects = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start My Projects Page */}
-            <div className="my-projects pt-5 pb-5">
+            <div className={`my-projects d-flex align-items-center ${isAppearedLoader ? 'loader-state' : 'pb-5 pt-5'}`}>
+                {isAppearedLoader && <div className="loader"> Loading ... </div>}
                 {/* Start Container */}
-                <div className="container">
+                {!isAppearedLoader && <div className="container">
                     <h1 className="page-name text-center mb-5">My Projects</h1>
                     {/* Start Grid System */}
                     <div className="row">
@@ -35,7 +46,7 @@ const MyProjects = ({ pageTitle }) => {
                         ))}
                     </div>
                     {/* End Grid System */}
-                </div>
+                </div>}
                 {/* End Container */}
             </div>
             {/* End My Projects Page */}

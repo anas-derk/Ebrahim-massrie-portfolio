@@ -11,8 +11,10 @@ const MySkills = ({ pageTitle }) => {
 
     const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
 
+    const [isAppearedLoader, setIsAppearedLoader] = useState(true);
+
     window.addEventListener("resize", (e) => {
-        
+
         setWindowInnerWidth(window.innerWidth);
 
     });
@@ -22,6 +24,14 @@ const MySkills = ({ pageTitle }) => {
         document.title = pageTitle;
 
         document.querySelector(".my-skills").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
+
+        let loaderTimeout = setTimeout(() => {
+
+            setIsAppearedLoader(false);
+
+            clearTimeout(loaderTimeout);
+
+        }, 2000);
 
     });
 
@@ -40,9 +50,10 @@ const MySkills = ({ pageTitle }) => {
         <Fragment>
             <Header />
             {/* Start My Skills Page */}
-            <div className="my-skills pt-5 pb-5 d-flex align-items-center">
+            <div className={`my-skills d-flex align-items-center ${isAppearedLoader ? 'loader-state' : 'pb-5 pt-5'}`}>
+                {isAppearedLoader && <div className="loader"> Loading ... </div>}
                 {/* Start Container */}
-                <div className="container">
+                {!isAppearedLoader && <div className="container">
                     <h1 className="page-name text-center mb-5">My Skills</h1>
                     {/* Start Grid System */}
                     <div className="skills-info">
@@ -100,7 +111,7 @@ const MySkills = ({ pageTitle }) => {
                         )}
                     </div>
                     {/* End Grid System */}
-                </div>
+                </div>}
                 {/* End Container */}
             </div>
             {/* End My Skills Page */}
