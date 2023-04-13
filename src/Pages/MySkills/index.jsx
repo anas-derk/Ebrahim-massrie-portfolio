@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import "./index.min.css";
 import { BsArrowDownSquare } from "react-icons/bs";
 import my_data from "../../Assets/myData/my_data.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MySkills = ({ pageTitle }) => {
 
@@ -22,6 +24,8 @@ const MySkills = ({ pageTitle }) => {
     useEffect(() => {
 
         document.title = pageTitle;
+
+        AOS.init();
 
         document.querySelector(".my-skills").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
@@ -59,7 +63,7 @@ const MySkills = ({ pageTitle }) => {
                     <div className="skills-info">
                         {my_data.skills.map((skill_data, index) =>
                             /* Start Column */
-                            <div className="skill-box" key={index}>
+                            <div className="skill-box" key={index} data-aos="fade-down">
                                 {/* Start Grid System */}
                                 <div className="row align-items-center skill-box pt-3 pb-3 bg-secondary">
                                     {/* Start Column */}

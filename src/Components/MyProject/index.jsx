@@ -2,7 +2,7 @@ import "./index.min.css";
 
 const MyProject = ({ title, description, technologies, sourceCodeLink }) => {
     return (
-        <div className="project-box bg-secondary p-3">
+        <div className="project-box bg-secondary p-3" data-aos="zoom-in">
             <div className="name-and-description-box p-3">
                 <h5 className="project-title fw-bold">Project Name: {title}</h5>
                 <h6 className="project-description-heading mb-3 fw-bold p-2">Description :</h6>

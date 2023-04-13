@@ -2,6 +2,8 @@ import { Fragment, useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import "./index.min.css";
 import my_data from "../../Assets/myData/my_data.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Qualification = ({ pageTitle }) => {
 
@@ -48,6 +50,8 @@ const Qualification = ({ pageTitle }) => {
 
         document.title = pageTitle;
 
+        AOS.init();
+
         document.querySelector(".qualification").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
         let loaderTimeout = setTimeout(() => {
@@ -78,7 +82,7 @@ const Qualification = ({ pageTitle }) => {
                     {/* Start Qualification Details Box */}
                     <div className="qualification-details-box row">
                         {/* Start Column */}
-                        <div className="col-md-6">
+                        <div className="col-md-6" data-aos="fade-right">
                             <h4 className="section-title mb-4 pb-2">Education</h4>
                             {/* Start Education Details Box */}
                             <section className="education-details-box details-box bg-secondary">
@@ -98,7 +102,7 @@ const Qualification = ({ pageTitle }) => {
                         </div>
                         {/* End Column */}
                         {/* Start Column */}
-                        <div className="col-md-6">
+                        <div className="col-md-6" data-aos="fade-left">
                             <h4 className="section-title mb-4 pb-2">Experience</h4>
                             {/* Start Experience Details Box */}
                             <section className="experience-details-box details-box bg-secondary">

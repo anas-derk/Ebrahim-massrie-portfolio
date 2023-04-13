@@ -5,6 +5,8 @@ import "./index.min.css";
 import { useSelector } from "react-redux";
 import my_data from "../../Assets/myData/my_data.json";
 import image4 from "../../Assets/images/photo_6039736428323258924_x.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AboutMe = ({ pageTitle }) => {
 
@@ -14,15 +16,23 @@ const AboutMe = ({ pageTitle }) => {
 
     const [isAppearedLoader, setIsAppearedLoader] = useState(true);
 
+    const smothlyTextWriting = useSelector(state => state.smothlyTextWriting);
+
+    const [summaryDescription, setSummaryDescription] = useState(my_data.about_me.summary_description);
+
     useEffect(() => {
 
         document.title = pageTitle;
+
+        AOS.init();
 
         document.querySelector(".about-me").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
         let loaderTimeout = setTimeout(() => {
 
             setIsAppearedLoader(false);
+
+            smothlyTextWriting(summaryDescription, setSummaryDescription, 10);
 
             clearTimeout(loaderTimeout);
 
@@ -42,13 +52,13 @@ const AboutMe = ({ pageTitle }) => {
                     {/* Start Grid System */}
                     <div className="row align-items-center">
                         {/* Start Column */}
-                        <div className="col-lg-6 text-center mb-5">
+                        <div className="col-lg-6 text-center mb-5" data-aos="flip-left">
                             <img src={image4} alt="Image Exist !!" className="my-image" />
                         </div>
                         {/* End Column */}
                         {/* Start Column */}
-                        <div className="col-lg-6">
-                            <p className="mb-5 summary-description">{my_data.about_me.summary_description}</p>
+                        <div className="col-lg-6" data-aos="flip-right">
+                            <p className="mb-5 summary-description">{summaryDescription}</p>
                             <div className="row text-center">
                                 <div className="col">
                                     <h4 className="mb-3 experience-years">{my_data.about_me.experience_years}</h4>
@@ -69,7 +79,7 @@ const AboutMe = ({ pageTitle }) => {
                         </div>
                         {/* End Column */}
                         {/* Start Column */}
-                        <div className="col-lg-6">
+                        <div className="col-lg-6" data-aos="zoom-in">
                             <ul className="contact-links mt-5 text-center d-flex justify-content-center">
                                 {linksIconsComponents.map((icon, index) =>
                                     <li className="icon" key={index}>
@@ -80,7 +90,7 @@ const AboutMe = ({ pageTitle }) => {
                         </div>
                         {/* End Column */}
                         {/* Start Column */}
-                        <div className="col-lg-6">
+                        <div className="col-lg-6" data-aos="zoom-in">
                             <a
                                 className="btn btn-danger p-3 d-block mt-5 mx-auto form-control"
                                 href="https://seirah.com/sbc6fe20246?lang=en"

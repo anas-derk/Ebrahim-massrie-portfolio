@@ -6,6 +6,8 @@ import { MdDoubleArrow } from "react-icons/md";
 import { useSelector } from "react-redux";
 import my_data from "../../Assets/myData/my_data.json";
 import image4 from "../../Assets/images/photo_6039736428323258924_x.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ContactMe = ({ pageTitle }) => {
 
@@ -25,6 +27,8 @@ const ContactMe = ({ pageTitle }) => {
     useEffect(() => {
 
         document.title = pageTitle;
+
+        AOS.init();
 
         document.querySelector(".contact-me").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
@@ -50,7 +54,7 @@ const ContactMe = ({ pageTitle }) => {
                     {/* Start Grid System */}
                     <div className="row align-items-center">
                         {/* Start Column */}
-                        <div className="col-lg-5 img-box">
+                        <div className="col-lg-5 img-box" data-aos="fade-right">
                             <img src={image4} alt="Image Exist !!" className="my-image" />
                         </div>
                         {/* End Column */}
@@ -60,18 +64,18 @@ const ContactMe = ({ pageTitle }) => {
                             <form className="contact-me-form" onSubmit={sendMessage}>
                                 {/* Start Grid System */}
                                 <div className="row mb-4">
-                                    <div className="col-lg">
+                                    <div className="col-lg" data-aos="flip-left">
                                         <input type="text" placeholder="Name" className="form-control p-4 name-input" required />
                                     </div>
-                                    <div className="col-lg">
+                                    <div className="col-lg" data-aos="flip-left">
                                         <input type="email" placeholder="Email" className="form-control p-4" required />
                                     </div>
                                 </div>
                                 {/* End Grid System */}
-                                <input type="text" placeholder="Project" className="form-control mb-4 p-4" required />
-                                <textarea placeholder="Message" className="form-control mb-4 p-4" required />
+                                <input type="text" placeholder="Project" className="form-control mb-4 p-4" required data-aos="flip-left" />
+                                <textarea placeholder="Message" className="form-control mb-4 p-4" required data-aos="flip-left" />
                                 {/* Start Grid System */}
-                                <div className="row">
+                                <div className="row" data-aos="fade-right">
                                     <div className="col-md-4">
                                         <button
                                             type="submit"

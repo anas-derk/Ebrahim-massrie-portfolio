@@ -3,6 +3,8 @@ import Header from "../../Components/Header";
 import "./index.min.css";
 import MyProject from "../../Components/MyProject/index";
 import my_data from "../../Assets/myData/my_data.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MyProjects = ({ pageTitle }) => {
 
@@ -11,6 +13,8 @@ const MyProjects = ({ pageTitle }) => {
     useEffect(() => {
 
         document.title = pageTitle;
+
+        AOS.init();
 
         document.querySelector(".my-projects").style.minHeight = `calc(100vh - ${document.querySelector("header").offsetHeight}px)`;
 
