@@ -75,7 +75,7 @@ const ContactMe = ({ pageTitle }) => {
                                 <input type="text" placeholder="Project" className="form-control mb-4 p-4" required data-aos="flip-left" />
                                 <textarea placeholder="Message" className="form-control mb-4 p-4" required data-aos="flip-left" />
                                 {/* Start Grid System */}
-                                <div className="row" data-aos="fade-right">
+                                <div className="row">
                                     <div className="col-md-4">
                                         <button
                                             type="submit"
